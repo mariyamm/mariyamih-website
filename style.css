@@ -110,29 +110,69 @@ section {
     border-radius: 8px; /* Rounded corners for sections */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
+/*HOME SECTION*/
 #home {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 20px;
+    
 }
+
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.home-content {
+    flex: 1;
+    max-width: 600px;
+    margin-right: 20px;
+}
+
 #home .social-links {
     order: 1;
 }
 
-#home .content {
-    order: 3;
+#me1 {
+    flex: 1;
+    max-width: 80%;
+    height: auto;
+    display: block;
+   
+    
+}
+
+#home_text {
+    
     flex: 3;
     padding-right: 100px;
     text-align: left;
+    
 }
 
+/* Hide the image by default */
+.mobile-only {
+    display: none;
+}
+
+/* Show the image only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+}
 
 @media (max-width: 1200px) {
     section {
         margin-left: 5%;
         margin-right: 5%;
+    }
+    #me1 {
+        display: none;
     }
 }
 
@@ -144,6 +184,7 @@ section {
     }
 
     #home {
+        
         flex-direction: column;
         align-items: center;
     }
@@ -163,6 +204,9 @@ section {
         padding-right: 0;
         text-align: center;
     }
+    #me1 {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -171,7 +215,14 @@ section {
         margin-right: 1%;
         padding: 20px 10px; /* Further adjust padding for very small screens */
     }
+    #me1 {
+        display: none;
+    }
 }
+
+
+
+
 /* Heading Styles */
 h2 {
     color: #333; /* Dark text color for headings */
@@ -244,6 +295,7 @@ img {
     height: auto;
 }
 
+/*CONTACT SECTION*/
 #contact {
     padding: 40px 20px;
     background-color: rgba(192, 146, 20, 0.3);
@@ -282,6 +334,7 @@ img {
     text-decoration: underline;
 }
 
+/*ABOUT SECTION*/
 .about-container {
     display: flex;
     align-items: center;
@@ -325,14 +378,11 @@ img {
     }
 
     .about-content {
-        padding-right: 0;
+        
         text-align: center;
     }
 
-    #me2 {
-        margin-top: 20px;
-    }
-}
+
 
 /* Statistics Section */
 #stats {
@@ -438,19 +488,9 @@ img {
 }
 
 
-/* Blog  Section */
-.linkedin-posts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 
-.linkedin-post iframe {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
 
+/* EXPERIENCE SECTION */
 #experience {
     max-width: 1200px;
     margin: 50px auto;
@@ -537,8 +577,37 @@ img {
 }
 
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .timeline::before {
+        top: 0;
+        left: 50%;
+        width: 4px;
+        height: 100%;
+    }
 
+    .timeline-item {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .timeline-icon {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item .timeline-content {
+        margin-top: 20px;
+    }
+}
+
+/*SERVICES SECTION*/
 #services {
     max-width: 1200px;
     margin: 50px auto;
@@ -631,6 +700,19 @@ img {
     background-color: #a67310; /* Darker shade of accent color */
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+
+    .service-item {
+        margin-bottom: 20px; /* Add spacing between items */
+    }
+}
+
+
+/*PORTFOLIO SECTION*/
 
 #portfolio {
     max-width: 1200px;
@@ -788,7 +870,25 @@ img {
     padding: 40px 20px;
 }
 
-/* Research Section */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio-slider {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .portfolio-item {
+        min-width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .modal-content {
+        max-width: 90%;
+    }
+}
+
+/* RESEARCH SECTION*/
 #research {
     background-color: white;
     padding: 60px 40px;
