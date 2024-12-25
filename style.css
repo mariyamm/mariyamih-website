@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #e6eaf5; /* Light background for contrast */
+    background-color: #f2f2f2; /* Light background for contrast */
     text-align: center; /* Center all text */
 
 }
@@ -14,7 +14,7 @@ header {
     position: sticky;
     top: 0;
     width: 100%;
-    background: #ffffff; /* Background color */
+    background: #f2f2f2; /* Background color */
     z-index: 1000; /* Ensure it stays on top */
     transition: background 0.3s, padding 0.3s; /* Smooth transition for background and padding */
     padding: 20px 0; /* Add padding to the header */
@@ -32,16 +32,18 @@ header #name {
     letter-spacing: 0.5px; /* Slightly increased letter spacing for a sleek look */
     text-align: left; /* Center all text */
     font-family: 'Brush Script MT', cursive;
-    color: #c09214;
+    color: #c29a3e;
    
 }
 .highlight {
-    color: #c09214;
+    color: #c29a3e;
 }
 /* Navigation Styles */
 nav {
     margin-top: 10px; /* Space above the nav */
-    font-size: large;
+    font-size: medium;
+
+    font-family: 'Roboto', sans-serif;
 }
 
 nav ul {
@@ -67,7 +69,7 @@ nav ul li a {
 
 /* Hover Effects */
 nav ul li a:hover {
-    background: #c09214; /* Background color on hover */
+    background: #c29a3e; /* Background color on hover */
     color: #fff; /* Keep text white */
     border-radius: 5px; /* Rounded corners */
 }
@@ -139,17 +141,15 @@ section {
 
 #me1 {
     flex: 1;
-    max-width: 80%;
     height: auto;
-    display: block;
-   
-    
+    border-radius: 30px; /* Rounded corners */
+
+
 }
 
 #home_text {
     
-    flex: 3;
-    padding-right: 100px;
+    
     text-align: left;
     
 }
@@ -234,7 +234,7 @@ h2 {
     display: inline-block;
     margin: 10px 5ox;
     padding: 10px 15px;
-    background-color: #c09214; /* Primary button color */
+    background-color: #c29a3e; /* Primary button color */
     color: white;
     text-decoration: none;
     border-radius: 5px; /* Rounded corners */
@@ -243,13 +243,13 @@ h2 {
 
 /* Button Hover Effect */
 .button:hover {
-    background: #c09214; /* Darker blue on hover */
+    background: #a67310; /* Darker blue on hover */
 }
 
 .button-no-background {
     display: inline-block;
     background: none;
-    color: #c09214;
+    color: #c29a3e;
     font-size: 1em;
     cursor: pointer;
     transition: color 0.3s;
@@ -267,14 +267,14 @@ h2 {
 .social-links a {
     display: block; /* Stacks the icons vertically */
     margin-bottom: 15px; /* Space between icons */
-    color: #c09214; /* Default color for the icons */
+    color: #c29a3e; /* Default color for the icons */
     font-size: 2em; /* Adjust icon size */
     transition: color 0.3s; /* Smooth color transition on hover */
 
 }
 
 .social-links a:hover {
-    color: #c09214; /* Darker blue on hover */
+    color: #a67310; /* Darker blue on hover */
 }
 
 .social-links a i {
@@ -291,7 +291,7 @@ footer {
 }
 
 img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
 }
 
@@ -321,7 +321,7 @@ img {
 }
 
 .contact-item i {
-    color: #c09214;
+    color: #c29a3e;
 
 }
 
@@ -332,6 +332,7 @@ img {
 
 .contact-item a:hover {
     text-decoration: underline;
+    color: #a67310;
 }
 
 /*ABOUT SECTION*/
@@ -361,11 +362,11 @@ img {
 #me2 {
     height: auto;
     width: auto;
-    flex: 0.5;
-    border-radius:15px; /* Rounded corners */
+    flex: 0.6;
+    border-radius:30px; /* Rounded corners */
     position: relative;
     overflow: hidden;
-    padding-left: 50px;
+    margin-left: 50px;
 
 }
 
@@ -387,7 +388,7 @@ img {
 
 /* Statistics Section */
 #stats {
-    background-color: rgba(192, 146, 20, 0.3); /* Light background color */
+    background-color: #ffffff; /* Light background color */
     padding: 5px 0;
     text-align: center; /* Center the text */
     font-weight: bold; /* Bold text for emphasis */ 
@@ -407,15 +408,15 @@ img {
 }
 
 #stats h2 {
-    font-size: 4rem; /* Large number font size */
-    color: #ffffff; /* Primary color for the numbers */
+    font-size: 5rem; /* Large number font size */
+    color: #c29a3e; /* Primary color for the numbers */
     margin: 0;
     font-weight: bold;
 }
 
 #stats p {
     font-size: 1.5rem; /* Smaller text for description */
-    color: #c09214; /* Dark gray color */
+    color: #c29a3e; /* Dark gray color */
     margin-top: 10px;
 }
 
@@ -471,7 +472,7 @@ img {
 }
 
 .progress {
-    background-color: #c09214;
+    background-color: #c29a3e;
     height: 100%;
     border-radius: 5px;
 }
@@ -537,7 +538,7 @@ img {
 .timeline-icon {
     width: 20px; /* Smaller dots */
     height: 20px;
-    background-color: #c09214;
+    background-color: #c29a3e;
     border-radius: 50%;
     margin: 0 auto;
     position: relative;
@@ -557,7 +558,7 @@ img {
 .timeline-item h3 {
     font-size: 1.3rem;
     margin: 10px 0;
-    color: #c09214;
+    color: #c29a3e;
 }
 
 .timeline-item h4 {
@@ -628,14 +629,14 @@ img {
 .service-item {
     padding: 20px;
     background-color: #fff;
-    border: 2px solid #c09214; /* Accent color */
+    border: 2px solid #c29a3e; /* Accent color */
     border-radius: 10px;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .service-item:hover {
-    background-color: #c09214; /* Accent color */
+    background-color: #c29a3e; /* Accent color */
     color: white;
 }
 
@@ -643,7 +644,7 @@ img {
     font-size: 3rem;
     margin-bottom: 15px;
     display: block;
-    color: #c09214; /* Accent color */
+    color: #c29a3e; /* Accent color */
 }
 
 .service-item:hover .service-icon {
@@ -687,7 +688,7 @@ img {
 }
 
 .appointment-btn {
-    background-color: #c09214; /* Accent color */
+    background-color: #c29a3e; /* Accent color */
     color: white;
     padding: 15px 30px;
     border: none;
@@ -734,7 +735,7 @@ img {
 .portfolio-item {
     min-width: 300px;
     background-color: white;
-    border: 2px solid #c09214; /* Accent color */
+    border: 2px solid #c29a3e; /* Accent color */
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -785,8 +786,8 @@ img {
 
 .learn-more-btn {
     background-color: transparent;
-    color: #c09214; /* Accent color */
-    border: 2px solid #c09214;
+    color: #c29a3e; /* Accent color */
+    border: 2px solid #c29a3e;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -795,7 +796,7 @@ img {
 }
 
 .learn-more-btn:hover {
-    background-color: #c09214;
+    background-color: #c29a3e;
     color: white;
 }
 
@@ -900,7 +901,7 @@ img {
 /* Titles and Subtitles */
 .title {
     
-    color: #c09214;
+    color: #c29a3e;
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
@@ -908,7 +909,7 @@ img {
 
 .sub-title {
     font-size: 1.8em;
-    color: #c09214;
+    color: #c29a3e;
     font-weight: 600;
     margin-bottom: 20px;
     text-align: center;
@@ -945,7 +946,7 @@ img {
 
 .research-item h4 {
     font-size: 1.4em;
-    color: #c09214;
+    color: #c29a3e;
     margin-bottom: 15px;
 }
 
@@ -976,7 +977,7 @@ img {
 #cta-section {
     text-align: center;
     padding: 30px;
-    background-color: #c09214;
+    background-color: #c29a3e;
     border-radius: 8px;
     color: white;
 }
