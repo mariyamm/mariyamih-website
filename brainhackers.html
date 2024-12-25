@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainHackers Podcast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: url('static/images/brain2.png') no-repeat center center/cover;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            position: absolute;
+            bottom: 80px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 2rem;
+            text-decoration: none;
+        }
+
+        #about {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #episodes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .episodes-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            margin-bottom: 100px;
+            margin-top: 100px;
+        }
+
+        /* Featured Episode */
+        .featured-episode {
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            background: linear-gradient(150deg, #f9a825, #f48fb1, #42a5f5, #9c27b0, #f9a825);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            margin: 0 auto; /* Center horizontally */
+            left: 20%;
+        }
+
+        .featured-episode .content {
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            background: #fff;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-episode h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .featured-episode p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .featured-episode audio {
+            width: 80%;
+        }
+
+
+
+        .circle-slider {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            left: -40px;
+            top: 160px;
+        }
+
+
+        /* Individual Episode Items */
+        .episode {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background:linear-gradient(45deg, #f9a825, #f48fb1);
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            position: absolute;
+            margin: 20px;
+            transform-origin: 375px center; /* Ensure episodes are positioned along the circle */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            padding: 10px;
+            
+        }
+
+   
+
+        /* Hide overflow episodes */
+        .episode.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8); /* Slightly shrink hidden episodes */
+        }
+
+        .episode h3 {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .episode:hover {
+            transform: scale(1.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .episode h3 {
+            font-size: 1rem;
+            text-align: center;
+        }
+        .episode p {
+            font-size: 0.8rem;
+            text-align: center;
+        }
+       
+
+
+        #contact {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        #contact a {
+            color: #c09214;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* Arrows */
+        .arrow {
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            color: #e41258;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .arrow-up {
+            transform: rotate(-45deg); /* Rotate left arrow 90 degrees */
+            left: 70px;
+            bottom: 30px;
+        }
+
+        .arrow-down {
+            transform: rotate(45deg); /* Rotate right arrow -90 degrees */
+            left: 70px;
+            top: 30px;
+        }
+
+
+        .arrow:hover {
+            color: #9c27b0;
+            
+        }
+
+        footer {
+            background: url('static/images/brain2.png') no-repeat center center/cover;
+            color: #fcfbfb;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+@media (max-width: 768px) {
+
+    
+
+
+    .arrow-up {
+        transform: rotate(180deg);
+        left: 0;
+        top: 50%;
+    }
+
+    .arrow-down {
+        right: 0;
+        top: 50%;
+    }
+
+    .episode {
+        position: static;
+        margin: 10px;
+        transform: none;
+        flex: 0 0 auto; /* Prevent shrinking */
+        width: 90px;
+        height: 90px;
+    }
+
+
+
+    .featured-episode {
+        width: 400px;
+        height: 400px;
+    }
+
+    .featured-episode .content {
+        padding: 15px;
+    }
+
+    .featured-episode h2 {
+        font-size: 1.5rem;
+    }
+
+    .featured-episode p {
+        font-size: 0.9rem;
+    }
+
+    .featured-episode audio {
+        width: 90%;
+    }
+
+    .episode {
+        position: static;
+        margin: 10px;
+        transform: none;
+    }
+
+    .episode {
+        width: 90px;
+        height: 90px;
+    }
+
+    .featured-episode {
+        width: 400px;
+        height: 400px;
+    }
+
+    .featured-episode .content {
+        padding: 15px;
+    }
+
+    .featured-episode h2 {
+        font-size: 1.5rem;
+    }
+
+    .featured-episode p {
+        font-size: 0.9rem;
+    }
+
+    .featured-episode audio {
+        width: 90%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#episodes">Episodes</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@BrainHackers-e7g" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/show/684eejcWPDB9fzzZoIn0Aj" target="_blank"><i class="fab fa-spotify"></i></a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div id="about">
+            <h2>About</h2>
+            <p>BrainHackers: Reprogram your mind, rewrite your life. This AI-powered podcast bridges neuroscience, psychology, spirituality, and self-development to help you understand and transform who you are. Each episode combines cutting-edge research, actionable tools, and deep self-reflection exercises to help you hack your brain, break free from limiting beliefs, and unlock your full potential. Discover how science and self-awareness can empower you to evolve into the person you aspire to be.</p>
+        </div>
+    </section>
+
+    <section id="episodes">
+        <div class="episodes-container">
+            <!-- Featured Episode -->
+            <div class="featured-episode">
+                <div class="content">
+                    <h2>BrainHackers | Ep.1 | The Neuroscience of Self</h2>
+                    <p>Explore the question: Who am I—and how can I change?</p>
+                    <audio controls>
+                        <source src="static/episodes/Ep1_The_Neuroscience_of_Self.wav" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+    
+            <!-- Arc Slider -->
+            <div class="-slider">
+                <button class="arrow arrow-up" onclick="navigateSlider('up')">&#9650;</button>
+                <div class="circle-slider">
+                    <div class="episode" data-index="0">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                    <div class="episode" data-index="1">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                    <div class="episode" data-index="2">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                    <div class="episode" data-index="3">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                    <div class="episode" data-index="4">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+                <button class="arrow arrow-down" onclick="navigateSlider('down')">&#9660;</button>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section id="contact">
+        <div id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out for any inquiries or collaborations.</p>
+            </br>
+            <p>Email: <a href="mailto:admin@mariyamih.pro">admin@mariyamih.pro</a></p>
+            <p>Website: <a href="https://www.mariyamih.pro" target="_blank">www.mariyamih.pro</a></p>
+            <p>Location: Paris, France</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Mariya Mihaylova. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+    const episodeData = [
+        { number: 1, title: 'The Neuroscience of Self', description: 'Explore the question: Who am I—and how can I change?', audioSrc: 'static/episodes/Ep1_The_Neuroscience_of_Self.wav' },
+        { number: 2, title: 'The Neuroscience of Authenticity', description: 'Discover how to be true to yourself and live authentically.', audioSrc: 'static/episodes/Ep.2_The Neuroscience of Authenticity.wav' },
+        { number: 3, title: 'The Neuroscience of Self-Acceptance', description: 'Learn how to embrace your true self and cultivate self-compassion.', audioSrc: 'static/episodes/Ep3_Mastering_Habits.wav' },
+        { number: 4, title: 'The Neuroscience of Self-Love', description: 'Break free from perfectionism and cultivate self-love and self-acceptance.', audioSrc: 'static/episodes/Ep4_Overcoming_Limiting_Beliefs.wav' },
+        { number: 5, title: 'The Neuroscience of Confidence', description: 'Unleash your inner confidence and step into your full potential.', audioSrc: 'static/episodes/Ep5_Emotional_Intelligence.wav' },
+    ];
+
+    const episodes = document.querySelectorAll('.episode');
+    const featuredEpisode = document.querySelector('.featured-episode .content');
+    let currentIndex = 0; // Tracks the first episode in view
+    const visibleEpisodes = episodes.length; // Number of static bubbles
+
+    // Position bubbles in a fixed arc
+    function positionEpisodes() {
+        const arcAngle = 120; // Degrees of the arc
+        const radius = 275; // Radius of the arc
+        const startAngle = -arcAngle / 2; // Starting angle
+        const angleStep = arcAngle / (visibleEpisodes - 1);
+
+        episodes.forEach((bubble, i) => {
+            const angle = startAngle + i * angleStep;
+            const x = radius * Math.cos((angle * Math.PI) / 180);
+            const y = radius * Math.sin((angle * Math.PI) / 180);
+
+            bubble.style.transform = `translate(${x}px, ${y}px)`; // Fix the position
+        });
+    }
+
+
+    // Check screen size and position episodes accordingly
+    function adjustEpisodePositions() {
+        if (window.innerWidth <= 768) {
+            positionEpisodesVertically();
+        } else {
+            positionEpisodes();
+        }
+    }
+
+    // Add event listener for window resize
+    window.addEventListener('resize', adjustEpisodePositions);
+
+    // Initial positioning
+    adjustEpisodePositions();
+
+    // Update bubble content
+    function updateEpisodeContent() {
+        episodes.forEach((bubble, i) => {
+            const dataIndex = (currentIndex + i) % episodeData.length; // Loop through episode data
+            const episodeInfo = episodeData[dataIndex];
+
+            bubble.querySelector('h3').textContent = `Ep.${episodeInfo.number}`;
+            bubble.querySelector('p').textContent = episodeInfo.title;
+        });
+    }
+
+    // Update featured episode
+    function updateFeaturedEpisode(index) {
+        const episodeInfo = episodeData[index];
+        featuredEpisode.querySelector('h2').textContent = `BrainHackers | Ep.${episodeInfo.number} | ${episodeInfo.title}`;
+        featuredEpisode.querySelector('p').textContent = episodeInfo.description;
+
+        const audio = featuredEpisode.querySelector('audio');
+        if (audio) {
+            audio.querySelector('source').src = episodeInfo.audioSrc;
+            audio.load();
+        }
+    }
+
+    // Navigation functionality
+    window.navigateSlider = function (direction) {
+        if (direction === 'up') {
+            currentIndex = (currentIndex - 1 + episodeData.length) % episodeData.length;
+        } else if (direction === 'down') {
+            currentIndex = (currentIndex + 1) % episodeData.length;
+        }
+        updateEpisodeContent(); // Refresh bubble content
+    };
+
+    // Event listeners for bubble clicks to update featured episode
+    episodes.forEach((bubble, i) => {
+        bubble.addEventListener('click', () => {
+            const dataIndex = (currentIndex + i) % episodeData.length; // Determine which episode was clicked
+            updateFeaturedEpisode(dataIndex);
+        });
+    });
+
+    // Initialize
+    positionEpisodes(); // Keep bubble positions fixed
+    updateEpisodeContent(); // Initialize bubble content
+    updateFeaturedEpisode(currentIndex); // Initialize featured episode
+});
+</script>
+</html>
+
+
