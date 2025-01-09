@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariya Mihaylova - AI Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <ul>
+                <li id="name" class="mobile-name">Mariya Mihaylova</li>
+                <li></li>
+                <li></li>
+                <li><a href="#home">Начало</a></li>
+                <li><a href="#about">За мен</a></li>
+                <li><a href="#skills">Умения</a></li>
+                <li><a href="#experience">Опит</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#research">Проучване</a></li>
+                <li><a href="#contact">Контакт</a></li>
+                <li>
+                    <!-- Language selection dropdown -->
+                    <div class="language-selector">
+                        <i class="fas fa-globe globe-icon"></i>
+                        <select id="language-dropdown" onchange="changeLanguage()">
+                            <option >Language</option>
+                            <option value="en">English</option>
+                            <option value="bg">Български</option>
+                            <option value="fr">Français</option>
+                            
+                            <!-- Add more languages here -->
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YL0N2EC2SM"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-YL0N2EC2SM');
+        </script>
+    </header>
+
+
+
+    <section id=" home">
+        <br>
+        <br>
+        <br> 
+    <!-- Image on the Right -->
+     
+            <!-- Image -->
+            <div class="mobile-only">
+                <img id="me11" src="static/images/me1.JPG" alt="Your Image" " style = "order: 1;border-radius: 30px;"/>
+            </div>
+      
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+    
+            <!-- Social Media Icons on the Left -->
+            <div class="social-links" >
+                <a href="https://www.linkedin.com/in/mariya-mihaylova-31a29117b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@mariyamihaylova7426" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://github.com/mariyamm" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            
+          
+            <!-- Text in the Center -->
+            <div id = "home_text">
+                
+                <h4>ЗДРАВЕЙТЕ, МОЕТО ИМЕ Е</h4>
+                <h1><span class="highlight">МАРИЯ</span> МИХАЙЛОВА</h1>
+                <hr>
+                <div>
+                    <p>AI Engineer | Project Manager | Lifecoach</p>
+                    <p>Добре дошли в моя личен уебсайт!</p>
+                    <p> Аз съм експерт по изкуствен интелект и скоро сертифициран лайф коуч. Мисисята ми е да помагам на както на индивиди, така и корпорации да разгърнат пълния си потенциал.
+                        Като комбинирам иновативни инструменти с изкуствен интелект и персонализирано коучинг обучение, ще ви насоча към по-умни решения за 
+                        по-голяма продуктивност и личностно развитие. Независимо дали искате да оптимизирате ежедневието си или да издигнете проектите си на ново ниво,
+                        аз съм тук, за да ви помогна да постигнете устойчив успех.</p>
+                </div>
+                <a href="static\images\Mariya_Mihaylova_CV_English_12_19_2024.pdf" class="button" download>Изтегли CV</a>
+                <a class="button" href="https://calendly.com/mariyamm-umich">БЕЗПЛАТНА Консултация</a>
+                <a href="#contact" class="button"><i class="fas fa-arrow-right"></i> Контакт</a>
+            </div>
+ 
+            <!-- Image -->
+            <div>
+            <img id="me1" src="static/images/me1.JPG" alt="Your Image" " style = "order: 1;"/>
+            </div>
+    
+        </div>
+        <br>
+        <br>
+        <br>
+    </section>
+
+    
+    <section id="stats">
+        <div class="container">
+            <div class="stat-item">
+                <h2>100+</h2>
+                <p>Успешни Проекти</p>
+            </div>
+            <div class="stat-item">
+                <h2>50+</h2>
+                <p>Доволни Клиенти</p>
+            </div>
+            <div class="stat-item">
+                <h2>6+</h2>
+                <p>Години Опит</p>
+            </div>
+        </div>
+    </section>
+    
+ 
+    <section id="about">
+        <h2>КОЯ СЪМ АЗ?</h2>
+        <div class="about-container">
+            <img id="me2" src="static/images/me2.jpg" alt="Your Image" />
+            <div class="about-content">
+                <p>Аз съм Мария Михайлова <span class = "highlight">експерт по изкуствен интелект, опитен мениджър на технически проекти, и съвсем скоро сертифициран лайф коуч</span>. Завършила съм  Мичиганския университет със специалност Компютърно Инженерство. 
+                    С над 100 успешни проекта в Чикаго и Париж, помагам на бизнеси да превърнат сложни идеи в реални решения.</p>
+                    <p>Моята страст към изкуствения интелект се развива паралелно с неговото развитие, и съм специализирана в <span class="highlight">практически програми с ИИ, които повишават продуктивността и оптимизират процесите.</span> 
+                        Поддържам актуални знания за последните технологии с ИИ и се гордея с възможността да създавам решения, които отговарят на специфичните нужди както на корпорации, така и на отделни лица. 
+                        Независимо дали искате да <span class="highlight">иновирате вашия бизнес или да подобрите личната си продуктивност</span>, аз съм тук, за да ви помогна да използвате силата на изкуствения интелект за устойчив успех.</p>
+                        <div style="text-align: center;">                    
+                        <a href="#contact" class="button">Свържи се с мен</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+        <section id="skills">
+        <div class="skills-container">
+            <div class="technical-skills">
+                <h3>ТЕХНИЧЕСКИ УМЕНИЯ</h3>
+                <ul>
+                    <li>
+                        <span>Machine Learning (ML)</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Deep Learning (DL)</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Data Science & Analytics</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Natural Language Processing (NLP)</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Computer Vision</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 30%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>AI Ethics & Fairness</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 45%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Neural Networks (ANN, CNN, RNN)</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 50%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Big Data Technologies (Hadoop, Spark)</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 55%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Cloud Computing (AWS, Google Cloud, Azure)</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Programming (Python, R, Java, C++)</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="soft-skills">
+                <h3>ЛИЧНОСТНИ КАЧЕСТВА</h3>
+                <ul>
+                    <li>
+                        <span>Комуникация</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Разрешаване на Проблеми</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Критична Мисъл</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Емпатия</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Креативност</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 70%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Адаптивност</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Работа в Екип</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Лидерски Качества</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 55%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Управление на Времето</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Емоционална Интелигентност</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section><section id="skills">
+        
+   
+
+<section id="experience">
+    <h2>ОПИТ</h2>
+    <div class="timeline">
+        <!-- Fourth Experience (Oldest First) -->
+        <div class="timeline-item">
+            <div class="timeline-date"><strong>03/2018 - 12/2020</strong></div>
+            <div class="timeline-icon"></div>
+            <div class="timeline-content">
+                <h3>Продуктов Мениджър</h3>
+                <h4>Melistics LLC – Chicago, IL</h4>
+                <ul>
+                    <li>Изграждане на продуктовата стратегия за SaaS решение за проследяване на пратики в Shopify.</li>
+                    <li>Екип от пет програмиста, QA и UX дизайнери.</li>
+                    <li>Постигане на 100% от целите за лансиране на продукта.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Third Experience -->
+        <div class="timeline-item">
+            <div class="timeline-date"><strong>12/2020 - 08/2022</strong></div>
+            <div class="timeline-icon"></div>
+            <div class="timeline-content">
+                <h3>Мениджър Технически Проекти</h3>
+                <h4>Americaneagle.com – Chicago, IL</h4>
+                <ul>
+                    <li>Meниджмънт на до девет мащабни уеб проекта едновременно.</li>
+                    <li>Сътрудничества между всички заинтересованите страни за определяне на целите и изискванията на проекта.</li>
+                    <li>Съставяне на тестови планове, ръковдства за управление, доклади и управление на риска. </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Second Experience -->
+        <div class="timeline-item">
+            <div class="timeline-date"><strong>09/2022 - 03/2024</strong></div>
+            <div class="timeline-icon"></div>
+            <div class="timeline-content">
+                <h3>Технически Консултант</h3>
+                <h4>Atos Worldgrid – Paris, France</h4>
+                <ul>
+                    <li>Предоставяне на технически консултации на EDF Renewables, най-големият доставчик на електричество във Франция.</li>
+                    <li>Конфигуриране и персонализиране на IFS според нуждите на EDFRE.</li>
+                    <li>Сътрудничество с екипи за подобряване на автоматизацията на системата и осигуряване на високо ниво на сигурност.</li>
+                
+                </ul>
+            </div>
+        </div>
+
+        <!-- First Experience (Most Recent) -->
+        <div class="timeline-item">
+            <div class="timeline-date"><strong>04/2024 - Present</strong></div>
+            <div class="timeline-icon"></div>
+            <div class="timeline-content">
+                <h3>Инжинер Проекти с Изкуствен Интелект</h3>
+                <h4>Eviden Worldgrid – Paris, France</h4>
+                <ul>
+                    <li>Управление ан екип от петима експерти за внедряване на Gen AI модел за вътрешни операции.</li>
+                    <li>Планиране на внедряването на AI модела с минимизирайки прекъсванията.</li>
+                    <li>Противодейстие на предизвикателствата със сигурността и гаранция за съответствие с всички регулаторни изисквания.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="services">
+    <h2>УСЛУГИ</h2>
+    <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-item" onclick="openModal('modal1')">
+            <i class="fas fa-robot service-icon"></i>
+            <h3>Разработка на Модили с ИИ</h3>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-item" onclick="openModal('modal2')">
+            <i class="fas fa-comments service-icon"></i>
+            <h3>Обработка на Натурален Език</h3>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-item" onclick="openModal('modal3')">
+            <i class="fas fa-camera service-icon"></i>
+            <h3>Компютърно Зрение</h3>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-item" onclick="openModal('modal4')">
+            <i class="fas fa-cogs service-icon"></i>
+            <h3>Автоматизация с ИИ </h3>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-item" onclick="openModal('modal5')">
+            <i class="fas fa-chart-line service-icon"></i>
+            <h3>Консултация по Проекти с Изкуствен Интелект</h3>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-item" onclick="openModal('modal6')">
+            <i class="fas fa-database service-icon"></i>
+            <h3>Инженеринг и Предварителна Обработка на Данни</h3>
+        </div>
+    </div>
+
+    <!-- Button to schedule an appointment -->
+    <div class="schedule-appointment">
+        <a href="https://calendly.com/mariyamm-umich" target="_blank">
+            <button class="appointment-btn">Разкажете ми за Вашата Идея</button>
+        </a>
+    </div>
+
+    <!-- Modal for Service 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h3>Разработка на Модeли с ИИ</h3>
+            <p>Разработвам/Обучавам персонализирани модели с ИИ,  
+                съобразно вашите нужди или тези на вашия бизнес.</p>
+        </div>
+    </div>
+
+  
+    <!-- Service 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h3>Обработка на Натурален Език</h3>
+            
+            <p>Разработвам апликации свързани с анализ на текст, 
+                разбиране на натурален език, анализ на настроенията и 
+                други услуги, базирани на NLP.</p>   
+            </div>    
+    </div>
+
+    <!-- Service 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h3>Компютърно Зрение</h3>
+            <p>Предоставям решения за откриване на обекти, 
+                класификация на изображения, разпознаване на лица и други, свързани с снимков и 
+                видео материал.</p>
+
+            </div>
+
+    </div>
+
+    <!-- Service 4 -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <h3>Автоматизация с ИИ</h3>
+            <p>Помагам на индивиди и бизнеси да автоматизират своите процеси, 
+                използвайки решения с ИИ. Целта ми винаги е подобряване на 
+                ефективността и намаляване на разходите.</p>
+            </div>
+    </div>
+
+    <!-- Service 5 -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <h3>Консултации по Проекти с ИИ</h3>
+            <p>Предоставям експертни консултантски услуги за 
+                изграждане на стратегия по управление на проекти и/или 
+                внедряване на модели с ИИ.</p>
+        </div>
+    </div>
+
+    <!-- Service 6 -->
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal6')">&times;</span>
+            <h3>Инженеринг и Предварителна Обработка на Данни</h3>
+            <p>Предоставам услуги по събиране, почистване и 
+                предварителна обработка на данни,преди захранване на модели с ИИ,
+            осигурявайки висококачествени резултати.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="portfolio">
+    <h2>PORTFOLIO</h2>
+    <div class="portfolio-slider">
+
+    
+            <!-- Project 1 -->
+            <div class="portfolio-item">
+                <img src="static/images/empowerbot1.png" alt="Project 1 Thumbnail" class="portfolio_images">
+                <h3>Empowerbot</h3>
+                <p>Empowerbot е емпатичен чатбот, който използва т.нар. RAG технология за да
+                    предоставя пресонализирани съвети с мотивационен храктер, инспирирани от най-добрите лайф коучове на света.
+                    Достъпен чрез WhatsApp, Empowerbot може да усети емоциите на своя събеседник, както и да го свърже  с най-подходящия 
+                    за него/нея психолог или лайф коуч. </p>
+                <div class="button-container">
+                <button class="learn-more-btn" onclick="openPortfolioModal('modal11')">Научи Повече</button>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="portfolio-item">
+                <img src="static/images/YTM1.png" alt="Project 2 Thumbnail" class="portfolio_images">
+                <h3>YouTube Mindmap</h3>
+                <p>YouTube Mindmap създава кратко резюме,както и диаграма от данни при предоставен линк от YouTube видео.
+                    Клиентите могат да филтрират, редактират и взаимосвързват информация от различни видеа и да използват информацията в бъдеще.
+                    Програмата е снабдена със мощна търсачка, която позволява семантично търсене. </p>  
+            </p>
+                <div class="button-container">
+                <button class="learn-more-btn" onclick="openPortfolioModal('modal21')">Научи Повече</button>
+                </div>
+            </div>
+         
+            <!-- Project 3 -->
+            <div class="portfolio-item">
+                <img src="static/images/grant_1.png" alt="Project 3 Thumbnail" class="portfolio_images">
+                <h3>АI Agent for Public Grants</h3>
+
+                <p>Система, задвижвана от ИИ, която групира кандидатури за публични субсидии 
+                     с най-подходящия рецензент в зависимост от естеството на проекта
+                     и опита на наличните експерти.  Интегриран е човешки надзор при съставянето и коригирането на 
+                     исковата молба като по този начин се увеличават максимално шансовете за одобрение.
+                      
+                    </p>
+                <div class="button-container">
+                <button class="learn-more-btn" onclick="openPortfolioModal('modal31')">Научи Повече</button>
+                </div>
+            </div>
+
+        <!-- Project 4 -->
+        <div class="portfolio-item">
+            <img src="static/images/flexitext_4.png" alt="Project 4 Thumbnail" class="portfolio_images">
+            <h3>FlexiText AI</h3>
+            <p>FlexiText е инструмент за обработка на документи, 
+                който позволява на потребителите да задават инструкции за модификация с натурален език. 
+                Примерни команди са: "Обобщи текста"; "Преведи текста на китайски език"...
+                Форматирането на текста се запазва и потребителят може да
+                изтегли преработената версия в първоначалния формат.</p>
+            <div class="button-container">
+            <button class="learn-more-btn" onclick="openPortfolioModal('modal41')">Научи Повече</button>
+        </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="portfolio-item">
+            <img src="static/images/intranet_announcement.png" alt="Project 5 Thumbnail" class="portfolio_images">
+            <h3>La Clé Intranet Site</h3>
+            <p>Вътрешна платформа за френската модна линия La Clé. 
+                Сайтът разполага с инструменти за управление на времето, 
+                система за уведомления, и система за подаване на молби за отпуски. 
+                Сайтът има за цел да подобри и улесни вътрешните операции на фирмата като взема в предвид спецификите на индустрията и организационната култура. </p> 
+            <div class="button-container">
+            <button class="learn-more-btn" onclick="openPortfolioModal('modal51')">Научи Повече</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modals -->
+
+         <!-- Modal for Project 1 -->
+         <div id="modal11" class="portfolio-modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePortfolioModal('modal11')">&times;</span>
+                <div class="modal-slider">
+                    <img src="static/images/empowerbot1.png" alt="Project 1 Slide 1">
+                    <img src="static/images/empowerbot2.png" alt="Project 1 Slide 2">
+                </div>
+                <div class="project-details">
+                    <h3>Empowerbot</h3>
+                    <p>
+                        Empowerbot е революционен чатбот за емоционална подкрепа разработен да предоставя персонализиран,
+                        мотивиращ съвет като за целта използва т.нар. RAG технология. Последната позволява на Empowerbot 
+                        да използва база от данни с ученията от най-елитните лайф коучове в света. 
+                        Чатботът усеща емоцията и проблема на потребителя и е програмиран да намери най-резониращото и мотивиращо
+                        послание, за да го инспирира за нови постижения. Достъпен чрез WhatsApp, Empowerbot
+                        не само може да изслушва, но и да вземе подходящите мерки като осъществи връзката
+                        между потребителя и най-подходящия за него и неговите затруднения лайф коуч или психолог. Не на последно място, 
+                        Empowerbot има функционалността да запише час при специалиста, което го прави one-stop solution за 
+                        психологично здраве, комбиниращо последните технологични иновации с изкустен интелект, обработка на натурален език,
+                        и човешка експертиза. 
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Project 2 -->
+        <div id="modal21" class="portfolio-modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePortfolioModal('modal21')">&times;</span>
+                <div class="modal-slider">
+                    <img src="static/images/YTM1.png" alt="Project 2 Slide 1">
+                    <img src="static/images/YTM2.png" alt="Project 2 Slide 2">
+                    <img src="static/images/YTM3.png" alt="Project 2 Slide 3">
+                    <img src="static/images/YTM4.png" alt="Project 2 Slide 4">
+                </div>
+                <div class="project-details">
+                    <h3>YouTube Mindmap</h3>
+                    <p>
+                        YouTube Mindmap е иновативно решение за трансформация на YouTube видеа в структурирано съдържание.
+                        Приложението позволява на потребителите да откриват полезна информация от индивидуални видеа или 
+                        да свържат няколко такива със сходна тематика във структурирана диаграма. Търсачката позволява
+                        семантично търсене за ефикасното откриване на най-подходящите източници според въпросите на потребителя. 
+                        Апликацията е снабдена също така и с полиезична функционалност. По начало разработена като част от проекта
+                        Empowerbot,  YouTube Mindmap увеличва способностите на чатбота като предлага мощен ресурс за 
+                        събирането, преобразуването и използването на необходимите данни. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    <!-- Modal for Project 3 -->
+    <div id="modal31" class="portfolio-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePortfolioModal('modal31')">&times;</span>
+            <div class="modal-slider">
+                <img src="static/images/grant_1.png" alt="Project 3 Slide 1">
+                <img src="static/images/grant_1.png" alt="Project 3 Slide 2">
+                
+            </div>
+            <div class="project-details">
+                <h3>Grant Application AI Agent<c/h3>
+                <p>
+
+                    Този проект използва възможностите на изкуствения интелект 
+                    за разработката на агент за кандидатстване за публини субсидии. Основната цел бе да се улесни 
+                    процеса на групиране на молби за публични грантове с експертни рецензенти, които да 
+                    прегледат и поправят вече изготвената документация. 
+                    Процесът включва генерация на описание на идеалния рецензент според специфичната субсидия/индустрия/корпорация/цел,
+                    и индентификация на най-подходящия такъв въз основа на калкулирания индекс на сходство.
+                    Чрез включване на човешки елемент в процеса на подаване на декларацията, системата осигурява по-висока 
+                    точност,справедливост и прецизност при изготвянето на съответната молба. 
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal for Project 2 -->
+    <div id="modal41" class="portfolio-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePortfolioModal('modal41')">&times;</span>
+            <div class="modal-slider">
+                <img src="static/images/flexitext_1.png" alt="Project 4 Slide 1">
+                <img src="static/images/flexitext_2.png" alt="Project 4 Slide 2">
+                <img src="static/images/flexitext_3.png" alt="Project 4 Slide 3">
+                <img src="static/images/flexitext_4.png" alt="Project 4 Slide 4">
+                <img src="static/images/flexitext_5.png" alt="Project 4 Slide 5">
+                <img src="static/images/flexitext_6.png" alt="Project 4 Slide 6">
+            </div>
+            <div class="project-details">
+                <h3>FlexiText AI</h3>
+                <p>
+                    FlexiText е инструмент, базиран на ИИ, създаден да улесни модификацията на документи. 
+                    Потребителите могат да качват файлове във формат Word или PDF и да използват Vertex AI за изпълнение на задачи като обобщаване,
+                    превод или текстови модификации. След обработката, потребителят може да изтегли редактирания 
+                    файл в оригиналния формат (Word или PDF). Платформата е проектирана за лесна употреба с чист, 
+                    отзивчив интерфейс, изграден с HTML и CSS, докато бекендът е захранван 
+                    от Flask и Python за ефективно управление на качванията на файлове, взаимодействията с ИИ и генерирането на файлове. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 3 -->
+    <div id="modal51" class="portfolio-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePortfolioModal('modal51')">&times;</span>
+            <div class="modal-slider">
+                <img src="static/images/intranet_login.png" alt="Project 5 Slide 1">
+                <img src="static/images/intranet_announcement.png" alt="Project 5 Slide 2">
+            </div>
+            <div class="project-details">
+                <h3>La Clé Intranet Site</h3>
+                <p>
+                    Напълно функционална вътрешна платформа, създадена за френска компания La Clé, 
+                    предоставяща на служителите основни инструменти за вътрешна комуникация и координация. 
+                    Основните функции включват  login функционалност с различни нива на достъп и сигурна;
+                    система за управление на времето, за проследяване на работните часове, както и на ваканционните дни; и надежден 
+                    модул за уведомления и съобщения, който информира персонала за актуализации на компанията. 
+                    Системата е изградена от нулата. Има изчистен и елегантен потребителски интерфейс, 
+                    който предоставя ефективно и лесно управление на вътрешните операции.
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="research">
+    <div class="container">
+        <div id="research-intro" class="section">
+            <h2>ПРОУЧВАНЕ</h2>
+            <h2 class="title">ИИ като Втори Мозък</h2>
+            <p class="description">Моето проучване изследва ролята на изкуствения интелект в личностното развитие, помагайки на хората да оптимизират ежедневните си задачи и да подобрят вземането на решения чрез анализ на поведения, мисли и взаимодействия. С ИИ като поддържащ "втори мозък", индивидите могат да отключат по-голям потенциал и да водят по-пълноценен живот.</p>
+        </div>
+
+        <div id="research-goals" class="section">
+            <h2 class="title">Цели на Проучването</h2>
+            <p class="goals-text">Основната цел на моите проучвания е да създам системи, задвижвани от ИИ, които действат като надеждни, интелигентни спътници—помагайки на хората да управляват ежедневните си задачи, като същевременно получават по-дълбоки прозрения за своето поведение и процеси на вземане на решения. Използвайки ИИ като втори мозък, можем да дадем възможност на хората да живеят най-добрия си живот, без да се затормозяват от рутината или стреса.</p>
+        </div>
+
+        <div id="research-areas" class="section">
+            <div class="research-grid">
+                <div class="research-item">
+                    <h4>Лично Развитие с Помощта на ИИ</h4>
+                    <p>Как ИИ може да анализира мисли и поведенчески модели, предоставяйки прозрения за подобрена емоционална интелигентност и вземане на решения.</p>
+                </div>
+                <div class="research-item">
+                    <h4>Автоматизиране на Рутинни Задачи</h4>
+                    <p>ИИ може да поеме повтарящи се, рутинни задачи, освобождавайки повече умствено пространство и време за креативност, личностно развитие и значими дейности.</p>
+                </div>
+                <div class="research-item">
+                    <h4>Анализ на Поведение и Обратна Връзка</h4>
+                    <p>Изследване на потенциала на ИИ да предоставя обратна връзка за човешките взаимодействия в реално време, подобрявайки междуличностните отношения и самоосъзнателността.</p>
+                </div>
+                <div class="research-item">
+                    <h4>Етична и Прозрачна Интеграция на ИИ</h4>
+                    <p>Фокус върху ненатрапчив ИИ, който допълва личната автономия и осигурява подкрепа, а не контрол върху живота на потребителя.</p>
+                </div>
+            </div>
+        </div>
+
+     
+
+        <div>
+            <a href="#contact" class="button">Задайте Ми Вашите Въпроси</a>
+        </div>
+    </div>
+</section>
+
+
+    <section id="contact">
+        <h2 style="margin-bottom: 0;">КОНТАКТ</h2>
+        <p style="margin-top: 0; margin-bottom: 20px;">Нека си поговорим за вашите идеи.</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:your-email@example.com">admin@mariyamih.pro</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Париж, Франция</span>
+            </div>
+                <!-- Button to schedule an appointment -->
+        <div class="schedule-appointment">
+        <a href="https://calendly.com/mariyamm-umich" target="_blank">
+            <button class="appointment-btn">БЕЗПЛАТНА Консултация</button>
+        </a>
+    </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mariya Mihaylova. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('nav ul');
+        menu.classList.toggle('show');
+    }
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('small');
+        } else {
+            header.classList.remove('small');
+        }
+    });
+
+
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        var modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+
+
+    
+    function openPortfolioModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+        setupSlider(modalId);
+    }
+
+    function closePortfolioModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Slider functionality for modal
+    function setupSlider(modalId) {
+        const slider = document.querySelector(`#${modalId} .modal-slider`);
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 3; // Scroll speed
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    }
+
+    // Close modal when clicking outside the content area
+    window.onclick = function(event) {
+        var modals = document.querySelectorAll('.portfolio-modal');
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+    function changeLanguage() {
+            const language = document.getElementById('language-dropdown').value;
+           
+            if (language === 'en') {
+                window.location.href = 'index.html';
+            } else if (language === 'bg') {
+                window.location.href = 'bg.html';
+            } else if (language === 'fr') {
+                window.location.href = 'fr.html';
+
+            // Add more language redirections here
+        }
+    }
+</script>

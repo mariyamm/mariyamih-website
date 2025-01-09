@@ -26,6 +26,21 @@
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li>
+                    <!-- Language selection dropdown -->
+                    <div class="language-selector">
+                        <i class="fas fa-globe globe-icon"></i>
+                        <select id="language-dropdown" onchange="changeLanguage()">
+                            <option >Language</option>
+                            <option value="en">English</option>
+                            <option value="bg">Български</option>
+                            <option value="fr">Français</option>
+                            
+
+                            <!-- Add more languages here -->
+                        </select>
+                    </div>
+                </li>
             </ul>
         </nav>
         <!-- Google tag (gtag.js) -->
@@ -115,7 +130,7 @@
     <section id="about">
         <h2>ABOUT ME</h2>
         <div class="about-container">
-            <img id="me2" src="static/images/me2.JPG" alt="Your Image" />
+            <img id="me2" src="static/images/me2.jpg" alt="Your Image" />
             <div class="about-content">
                 <p>I’m Mariya Mihaylova, an <span class = "highlight">AI expert, experienced project manager, and soon-to-be certified lifecoach</span> I have a degree in Computer Engineering from the University of Michigan. 
                     With over 100 successful projects across Chicago and Paris, I’ve helped businesses turn complex ideas into real-world solutions. </p>
@@ -377,7 +392,7 @@
     <!-- Button to schedule an appointment -->
     <div class="schedule-appointment">
         <a href="https://calendly.com/mariyamm-umich" target="_blank">
-            <button class="appointment-btn">FREE Consultation</button>
+            <button class="appointment-btn">Tell Me More About Your Project</button>
         </a>
     </div>
 
@@ -473,7 +488,7 @@
             <!-- Project 3 -->
             <div class="portfolio-item">
                 <img src="static/images/grant_1.png" alt="Project 3 Thumbnail" class="portfolio_images">
-                <h3>Grant Application AI Agent</h3>
+                <h3>АI Agent for Public Grants</h3>
                 <p>An AI-powered system that pairs grant applications with the best expert reviewers using Django, React, and Vertex AI, with human oversight to optimize approval chances.</p>
                 <div class="button-container">
                 <button class="learn-more-btn" onclick="openPortfolioModal('modal31')">Learn More</button>
@@ -564,7 +579,7 @@
                 
             </div>
             <div class="project-details">
-                <h3>GrantGPT- Human in the Loop<c/h3>
+                <h3>АI Agent for Public Grants<c/h3>
                 <p>
 
                     This project developed a Grant Application AI Agent that streamlines the
@@ -790,5 +805,17 @@
             }
         });
     }
+    function changeLanguage() {
+            const language = document.getElementById('language-dropdown').value;
+           
+            if (language === 'en') {
+                window.location.href = 'index.html';
+            } else if (language === 'bg') {
+                window.location.href = 'bg.html';
+            } else if (language === 'fr') {
+                window.location.href = 'fr.html';
 
+            // Add more language redirections here
+        }
+    }
 </script>
