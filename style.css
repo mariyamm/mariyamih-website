@@ -31,8 +31,8 @@ header #name {
     font-weight: bold; /* Bold text for emphasis */
     letter-spacing: 0.5px; /* Slightly increased letter spacing for a sleek look */
     text-align: left; /* Center all text */
-    font-family: 'Brush Script MT', cursive;
-    color: #c29a3e;
+    font-family: 'DrukTextWideTT', Arial, sans-serif;
+    color: #080808;
    
 }
 .highlight {
@@ -492,8 +492,8 @@ img {
 
 /* EXPERIENCE SECTION */
 #experience {
-    max-width: 1200px;
-    margin: 50px auto;
+  
+    
     padding: 20px;
     text-align: center;
 }
@@ -609,8 +609,7 @@ img {
 
 /*SERVICES SECTION*/
 #services {
-    max-width: 1200px;
-    margin: 50px auto;
+
     padding: 20px;
     text-align: center;
 }
@@ -715,8 +714,7 @@ img {
 /*PORTFOLIO SECTION*/
 
 #portfolio {
-    max-width: 1200px;
-    margin: 50px auto;
+
     padding: 20px;
     text-align: center;
 }
