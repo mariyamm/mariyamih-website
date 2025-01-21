@@ -6,7 +6,9 @@
     <title>Mariya Mihaylova - AI Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </head>
 <body>
@@ -15,10 +17,10 @@
         <nav>
             <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
             <ul>
-                <li id="name" class="mobile-name">MARIYA MIHAYLOVA</li>
+                <li id="name" class="mobile-name">MARIYA MIHAYLOVA.</li>
                 <li></li>
                 <li></li>
-                <li><a href="# home">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <!--<li><a href="#skills">Skills</a></li>-->
                 <li><a href="#experience">Experience</a></li>
@@ -56,234 +58,67 @@
 
 
 
-    <section id=" home">
+    <section id="home">
         <br>
         <br>
         <br> 
-    <!-- Image on the Right -->
+        <div class="home-flex-container">
      
-            <!-- Image -->
-            <div class="mobile-only">
-                <img id="me11" src="static/images/me1.JPG" alt="Your Image" " style = "order: 1;border-radius: 30px;"/>
-            </div>
-      
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-    
+                          
+            <!-- Image Section -->
+                <div class="home-image-section" style="width: 65%; vertical-align: top;">
+                    <img id="me1" src="static/images/me_poster.png" alt="Image of Mariya Mihaylova"/>
+                </div>
             <!-- Social Media Icons on the Left -->
             <div class="social-links" >
                 <a href="https://www.linkedin.com/in/mariya-mihaylova-31a29117b/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://www.youtube.com/@mariyamihaylova7426" target="_blank"><i class="fab fa-youtube"></i></a>
                 <a href="https://github.com/mariyamm" target="_blank"><i class="fab fa-github"></i></a>
             </div>
-            
-          
-            <!-- Text in the Center -->
-            <div id = "home_text">
-                
-                <h4>HI, MY NAME IS</h4>
-                <h1><span class="highlight">MARIYA</span> MIHAYLOVA</h1>
-                <hr>
-                <div>
-                    <p>AI Engineer | Project Manager | Lifecoach</p>
-                    <p>Welcome to my personal website!</p>
-                    <p> I’m an AI expert and a psychology enthusiast passionate about helping individuals and businesses unlock their full potential.
-                        By integrating cutting-edge AI tools with personalized coaching, 
-                        I empower you to make smarter decisions, enhance productivity, 
-                        and foster personal growth. Whether you’re seeking to optimize your daily life or 
-                        elevate your projects, I’m here to guide you toward lasting success.</p>
-                </div>
-                <a href="static\images\Mariya_Mihaylova_CV_English_12_19_2024.pdf" class="button" download>Download CV</a>
-                <a class="button" href="https://calendly.com/mariyamm-umich">FREE Consultation</a>
-                <a href="#contact" class="button"><i class="fas fa-arrow-right"></i> Contact</a>
-            </div>
+
  
-            <!-- Image -->
-            <div>
-            <img id="me1" src="static/images/me1.JPG" alt="Your Image" " style = "order: 1;"/>
-            </div>
-    
+
         </div>
         <br>
         <br>
         <br>
     </section>
 
+
     
-    <section id="stats">
-        <div class="container">
-            <div class="stat-item">
-                <h2>100+</h2>
-                <p>Successful Projects</p>
-            </div>
-            <div class="stat-item">
-                <h2>50+</h2>
-                <p>Happy Clients</p>
-            </div>
-            <div class="stat-item">
-                <h2>6+</h2>
-                <p>Years of Experience</p>
-            </div>
-        </div>
-    </section>
-    
+
  
     <section id="about">
         <h2>ABOUT ME</h2>
         <div class="about-container">
-            <img id="me2" src="static/images/me2.JPG" alt="Your Image" />
+          
             <div class="about-content">
-                <p>I’m Mariya Mihaylova, an <span class = "highlight">AI expert, experienced project manager, and soon-to-be certified lifecoach</span> I have a degree in Computer Engineering from the University of Michigan. 
-                    With over 100 successful projects across Chicago and Paris, I’ve helped businesses turn complex ideas into real-world solutions. </p>
-                <p> My passion for AI grew alongside its development, and I specialize in <span class = "highlight"> practical AI programs that boost productivity and streamline processes.</span>
-                I stay up-to-date with the latest AI technologies and pride myself on tailoring solutions to meet the unique needs of both corporations and individuals. 
-                Whether you’re looking to <span class = "highlight">innovate your business or enhance your personal productivity</span>, I’m here to help you harness the power of AI for lasting success.</p>
-                <div style="text-align: center;">
+                <p>I’m Mariya Mihaylova, an <span class="highlight">AI expert, experienced project manager, and soon-to-be certified life coach</span>. With a degree in Computer Engineering from the University of Michigan, 
+                    I have a track record of delivering over 100 successful projects across Chicago and Paris. 
+                    I specialize in transforming ambitious ideas into tangible, effective solutions.</p> 
+                    <p>My passion lies in building intelligent agents and automation systems that empower 
+                        people to focus on what matters most. I design <span class="highlight">practical AI 
+                            programs that save time, boost productivity, and streamline complex processes</span>, helping businesses and individuals reclaim their time and energy. 
+                            Staying at the forefront of AI advancements, I pride myself on creating personalized solutions that meet the unique goals of each client. Whether you’re looking to 
+                            <span class="highlight">innovate your business with cutting-edge automation or optimize your personal workflow</span>, I’m here to help you harness AI for meaningful, lasting impact.</p>
+                    <div style="text-align: center;">
+
                     <a href="#contact" class="button">Contact Me</a>
                 </div>
             </div>
             
         </div>
     </section>
-<!-- 
-        <section id="skills">
-        <div class="skills-container">
-            <div class="technical-skills">
-                <h3>TECH STACK</h3>
-                <ul>
-                    <li>
-                        <span>Machine Learning (ML)</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 90%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Deep Learning (DL)</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Data Science & Analytics</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 80%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Natural Language Processing (NLP)</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 75%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Computer Vision</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 30%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>AI Ethics & Fairness</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 45%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Neural Networks (ANN, CNN, RNN)</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 50%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Big Data Technologies (Hadoop, Spark)</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 55%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Cloud Computing (AWS, Google Cloud, Azure)</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 60%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Programming (Python, R, Java, C++)</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%;"></div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="soft-skills">
-                <h3>SOFT SKILLS</h3>
-                <ul>
-                    <li>
-                        <span>Communication</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 90%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Problem-Solving</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 95%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Critical Thinking</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Empathy</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 75%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Creativity</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 70%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Adaptability</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 65%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Team Collaboration</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 60%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Leadership</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 55%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Time Management</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%;"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>Emotional Intelligence (EQ)</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 75%;"></div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section><section id="skills">
-        -->
+
+
+
+
    
 
 <section id="experience">
     <h2>EXPERIENCE</h2>
+    <br>
+    <br>
     <div class="timeline">
         <!-- Fourth Experience (Oldest First) -->
         <div class="timeline-item">
@@ -351,48 +186,51 @@
 
 <section id="services">
     <h2>MY SERVICES</h2>
+    <br>
+    <p>I Build AI Agents Tailored to Your Needs.</p>
     <div class="services-grid">
         <!-- Service 1 -->
         <div class="service-item" onclick="openModal('modal1')">
-            <i class="fas fa-robot service-icon"></i>
-            <h3>AI Model Development</h3>
+            <i class="fas fa-cogs service-icon"></i>
+            <h3>Workplace Productivity & Automation</h3>
         </div>
 
         <!-- Service 2 -->
         <div class="service-item" onclick="openModal('modal2')">
             <i class="fas fa-comments service-icon"></i>
-            <h3>Natural Language Processing</h3>
+            <h3>Customer Engagement and Support</h3>
         </div>
 
         <!-- Service 3 -->
         <div class="service-item" onclick="openModal('modal3')">
             <i class="fas fa-camera service-icon"></i>
-            <h3>Computer Vision</h3>
+            <h3>Digital Branding and Content Creation</h3>
         </div>
 
         <!-- Service 4 -->
         <div class="service-item" onclick="openModal('modal4')">
-            <i class="fas fa-cogs service-icon"></i>
-            <h3>AI Automation</h3>
+            <i class="fas fa-chart-line service-icon"></i>
+            <h3>Financial and Educational Management</h3>
         </div>
 
         <!-- Service 5 -->
         <div class="service-item" onclick="openModal('modal5')">
-            <i class="fas fa-chart-line service-icon"></i>
-            <h3>AI Consulting</h3>
+            
+            <i class="fas fa-heartbeat service-icon"></i>
+            <h3>Beauty, Health, and Lifestyle</h3>
         </div>
 
         <!-- Service 6 -->
         <div class="service-item" onclick="openModal('modal6')">
-            <i class="fas fa-database service-icon"></i>
-            <h3>Data Engineering & Preprocessing</h3>
+            <i class="fas fa-brain service-icon"></i>
+            <h3>Personal Growth and Self-Development</h3>
         </div>
     </div>
 
     <!-- Button to schedule an appointment -->
     <div class="schedule-appointment">
         <a href="https://calendly.com/mariyamm-umich" target="_blank">
-            <button class="appointment-btn">Tell Me More About Your Project</button>
+            <a class="button" href="https://calendly.com/mariyamm-umich" target="_blank">Tell Me More About Your Project</a>
         </a>
     </div>
 
@@ -400,8 +238,13 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <h3>AI Model Development</h3>
-            <p>Offering customized AI solutions, including machine learning models and deep learning architectures tailored to your business needs.</p>
+            <h3> AI Agents for Workplace Productivity & Automation</h3>
+
+            <ul>
+                <li>Automate routine tasks (email management, scheduling, reminders).</li>
+                <li>Enhance team collaboration through smart task tracking and project management tools.</li>
+                <li>Provide real-time analytics and insights to support decision-making.</li>
+            </ul>
         </div>
     </div>
 
@@ -410,8 +253,12 @@
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <h3>Natural Language Processing</h3>
-            <p>Text analysis, chatbots, language understanding, sentiment analysis, and other NLP-based services for transforming your business data.</p>
+            <h3>AI Agents for Customer Engagement and Support</h3>
+            <ul>
+                <li>Intelligent chatbots for personalized customer service and real-time responses.</li>
+                <li>AI-powered recommendation systems to enhance customer experience and boost sales.</li>
+                <li>Virtual assistants that handle FAQs, product suggestions, and post-purchase support.</li>
+            </ul>
         </div>
     </div>
 
@@ -419,8 +266,12 @@
     <div id="modal3" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal3')">&times;</span>
-            <h3>Computer Vision</h3>
-            <p>Providing solutions for object detection, image classification, facial recognition, and other computer vision tasks.</p>
+            <h3>AI Agents for Digital Branding and Content Creation</h3>
+            <ul>
+                <li>AI-driven copywriters for generating blog posts, social media content, and ad copy.</li>
+                <li>Content creators that automate video editing and help with content strategy planning.</li>
+                <li>Social media managers to optimize and schedule posts, ensuring engagement with your audience.</li>
+            </ul>
         </div>
     </div>
 
@@ -428,8 +279,12 @@
     <div id="modal4" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal4')">&times;</span>
-            <h3>AI Automation</h3>
-            <p>Helping businesses automate their processes using AI-powered solutions to improve efficiency and reduce costs.</p>
+            <h3>AI Agents for Financial and Educational Management</h3>
+            <ul>
+                <li>Financial management tools that track spending, set budgets, and recommend saving strategies.</li>
+                <li>AI tutors and learning hubs that customize educational content to your needs, from skills development to academic subjects.</li>
+                <li>Investment and financial advisors with data-driven insights tailored to your goals.</li>
+            </ul>
         </div>
     </div>
 
@@ -437,8 +292,12 @@
     <div id="modal5" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal5')">&times;</span>
-            <h3>AI Consulting</h3>
-            <p>Providing expert consulting services for AI strategy, project management, and implementation to help businesses integrate AI into their workflow.</p>
+            <h3>AI Agents for Beauty, Health, and Lifestyle</h3>
+            <ul>
+                <li>Personal beauty advisors that recommend skincare, makeup, and wellness routines.</li>
+                <li>Fitness and wellness trackers that monitor your health goals and provide personalized advice.</li>
+                <li>Lifestyle assistants that help with planning and organizing hobbies, events, and travel.</li>
+            </ul>
         </div>
     </div>
 
@@ -446,8 +305,12 @@
     <div id="modal6" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal6')">&times;</span>
-            <h3>Data Engineering & Preprocessing</h3>
-            <p>Data collection, cleaning, and preprocessing services to prepare data for AI models, ensuring high-quality results.</p>
+            <h3>AI Agents for Personal Growth and Self-Development</h3>
+            <ul>
+                <li>Virtual coaches to guide you in habit formation, goal setting, and mindfulness.</li>
+                <li>Personal productivity assistants that help prioritize tasks, set reminders, and organize your day.</li>
+                <li>Learning companions that adapt to your preferences and pace for self-improvement.</li>
+            </ul>
         </div>
     </div>
 </section>
@@ -456,6 +319,8 @@
 
 <section id="portfolio">
     <h2>PORTFOLIO</h2>
+    <br>
+    <br>
     <div class="portfolio-slider">
 
         
@@ -465,9 +330,8 @@
                 <img src="static/images/empowerbot1.png" alt="Project 1 Thumbnail" class="portfolio_images">
                 <h3>Empowerbot</h3>
                 <p>Empowerbot is an empathetic chatbot leveraging advanced RAG technology to 
-                    deliver tailored, motivational advice from world-renowned life coaches. 
-                    Accessible via WhatsApp, it detects emotions, connects users with the 
-                    right coaches or psychologists, and helps schedule appointments seamlessly.</p>
+                    deliver motivational advice from world-renowned life coaches. 
+                    Accessible via WhatsApp.</p>
                 <div class="button-container">
                 <button class="learn-more-btn" onclick="openPortfolioModal('modal11')">Learn More</button>
                 </div>
@@ -478,8 +342,7 @@
                 <h3>YouTube Mindmap</h3>
                 <p>YouTube Mindmap creates detailed summaries and 
                     interconnected mindmaps of YouTube videos, helping users distill and 
-                    link insights into actionable strategies. With semantic search and 
-                    multilingual summaries, it’s perfect for deep dives into any subject.</p>
+                    link insights into actionable strategies. </p>
                 <div class="button-container">
                 <button class="learn-more-btn" onclick="openPortfolioModal('modal21')">Learn More</button>
                 </div>
@@ -499,7 +362,7 @@
         <div class="portfolio-item">
             <img src="static/images/flexitext_4.png" alt="Project 4 Thumbnail" class="portfolio_images">
             <h3>FlexiText AI</h3>
-            <p>FlexiText is a document processing tool that allows users to upload Word or PDF files, apply AI-driven modifications like summarization or translation, and download the revised version, built with Python, Flask, HTML, and CSS.</p>
+            <p>FlexiText is a document processing tool that allows users to upload Word or PDF files, apply AI-driven modifications like summarization or translation, and download the revised version.</p>
             <div class="button-container">
             <button class="learn-more-btn" onclick="openPortfolioModal('modal41')">Learn More</button>
         </div>
@@ -520,12 +383,14 @@
 
          <!-- Modal for Project 1 -->
          <div id="modal11" class="portfolio-modal">
-            <div class="modal-content">
+            <div class="portfolio-modal-content">
                 <span class="close" onclick="closePortfolioModal('modal11')">&times;</span>
                 <div class="modal-slider">
                     <img src="static/images/empowerbot1.png" alt="Project 1 Slide 1">
                     <img src="static/images/empowerbot2.png" alt="Project 1 Slide 2">
                 </div>
+
+
                 <div class="project-details">
                     <h3>Empowerbot</h3>
                     <p>
@@ -544,7 +409,7 @@
         </div>
         <!-- Modal for Project 2 -->
         <div id="modal21" class="portfolio-modal">
-            <div class="modal-content">
+            <div class="portfolio-modal-content">
                 <span class="close" onclick="closePortfolioModal('modal21')">&times;</span>
                 <div class="modal-slider">
                     <img src="static/images/YTM1.png" alt="Project 2 Slide 1">
@@ -571,7 +436,7 @@
         </div>
     <!-- Modal for Project 3 -->
     <div id="modal31" class="portfolio-modal">
-        <div class="modal-content">
+        <div class="portfolio-modal-content">
             <span class="close" onclick="closePortfolioModal('modal31')">&times;</span>
             <div class="modal-slider">
                 <img src="static/images/grant_1.png" alt="Project 3 Slide 1">
@@ -598,7 +463,7 @@
 
     <!-- Modal for Project 2 -->
     <div id="modal41" class="portfolio-modal">
-        <div class="modal-content">
+        <div class="portfolio-modal-content">
             <span class="close" onclick="closePortfolioModal('modal41')">&times;</span>
             <div class="modal-slider">
                 <img src="static/images/flexitext_1.png" alt="Project 4 Slide 1">
@@ -624,7 +489,7 @@
 
     <!-- Modal for Project 3 -->
     <div id="modal51" class="portfolio-modal">
-        <div class="modal-content">
+        <div class="portfolio-modal-content">
             <span class="close" onclick="closePortfolioModal('modal51')">&times;</span>
             <div class="modal-slider">
                 <img src="static/images/intranet_login.png" alt="Project 5 Slide 1">
@@ -704,8 +569,8 @@
             </div>
                 <!-- Button to schedule an appointment -->
         <div class="schedule-appointment">
-        <a href="https://calendly.com/mariyamm-umich" target="_blank">
-            <button class="appointment-btn">FREE Consultation</button>
+       
+            <a class="button" href="https://calendly.com/mariyamm-umich" target="_blank">FREE Consultation</a>
         </a>
     </div>
         </div>
@@ -734,6 +599,7 @@
     });
 
 
+
     function openModal(modalId) {
         document.getElementById(modalId).style.display = 'flex';
     }
@@ -752,49 +618,75 @@
         });
     }
 
+// Open Modal
+function openPortfolioModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
 
+// Close Modal
+function closePortfolioModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
     
-    function openPortfolioModal(modalId) {
-        document.getElementById(modalId).style.display = 'flex';
-        setupSlider(modalId);
-    }
+// Function to set up a basic slider
+function setupSlider(modalId) {
+    const slider = document.querySelector(`#${modalId} .modal-slider`);
+    const slides = slider.querySelectorAll('img');
+    let currentIndex = 0;
 
-    function closePortfolioModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-    }
+    // Create navigation controls
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '<';
+    prevButton.classList.add('slider-prev');
+    const nextButton = document.createElement('button');
+    nextButton.textContent = '>';
+    nextButton.classList.add('slider-next');
 
-    // Slider functionality for modal
-    function setupSlider(modalId) {
-        const slider = document.querySelector(`#${modalId} .modal-slider`);
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+    slider.appendChild(prevButton);
+    slider.appendChild(nextButton);
 
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('active');
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 3; // Scroll speed
-            slider.scrollLeft = scrollLeft - walk;
+    // Function to show a specific slide
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
         });
     }
+
+    // Navigate to the next slide
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    });
+
+    // Navigate to the previous slide
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    });
+
+    // Initialize by showing the first slide
+    showSlide(currentIndex);
+}
+
+// Initialize sliders for all modals
+document.querySelectorAll('.portfolio-modal').forEach(modal => {
+    modal.addEventListener('click', (event) => {
+        if (event.target.classList.contains('portfolio-modal')) {
+            modal.style.display = 'none'; // Close modal on background click
+        }
+    });
+
+    // Set up the slider when opening the modal
+    const modalId = modal.id;
+    setupSlider(modalId);
+});
+
 
     // Close modal when clicking outside the content area
     window.onclick = function(event) {
@@ -805,6 +697,7 @@
             }
         });
     }
+
     function changeLanguage() {
             const language = document.getElementById('language-dropdown').value;
            
@@ -818,4 +711,6 @@
             // Add more language redirections here
         }
     }
+
+
 </script>
