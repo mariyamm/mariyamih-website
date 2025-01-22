@@ -123,3 +123,21 @@ document.querySelectorAll('.portfolio-modal').forEach(modal => {
             // Add more language redirections here
         }
     }
+
+
+
+//For the How I work Section
+
+const progressBar = document.getElementById('progress-bar');
+
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const documentHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercentage = (scrollPosition / documentHeight) * 100;
+
+    progressBar.style.width = `${scrollPercentage}%`;
+});
+
+function scrollToContact() {
+    alert('Contact form not implemented yet!');
+}

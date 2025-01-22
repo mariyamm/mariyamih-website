@@ -227,8 +227,7 @@ section {
         gap: 20px; /* Add spacing between icons */
         margin-bottom: 0%; /* Add space below the icons */
         padding-bottom: 0%;
-        margin-right: 5%;
-
+        padding-right:  0%;
     }
 
     .social-links a {
@@ -279,17 +278,15 @@ h2 {
 
 /* Button Styles */
 .button {
-    display: inline-block;
-    margin: 10px 5px;
     padding: 10px 20px;
-    background-color: white; /* White background */
-    color: black; /* Black text color */
-    
+    font-size: 1rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
     text-decoration: none;
-    transition: background 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transition */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    font-weight: bold; /* Bold text */
-    border-radius: 5px; /* Rounded corners */
 }
 
 .button:hover {
@@ -355,6 +352,11 @@ footer {
 }
 
 /*ABOUT SECTION*/
+#about {
+    padding: 20px;
+    text-align: center;
+    padding-bottom: 5%;
+}
 .about-container {
     display: flex;
     align-items: center;
@@ -402,7 +404,7 @@ footer {
    
     padding: 20px;
     text-align: center;
-    padding-bottom: 10%;
+    padding-bottom: 3%;
 }
 
 
@@ -1113,3 +1115,77 @@ footer {
         font-size: 1.1em;
     }
 }
+
+
+/* HOW I WORK SECTION*/
+.steps-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.step {
+    width: 250px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    background-color: #f9f9f9;
+}
+
+.step .number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #000;
+    width: 0%;
+    transition: width 0.1s;
+}
+
+.cta {
+    margin-top: 40px;
+}
+
+.cta button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.cta button:hover {
+    background-color: #333;
+}
+
+/* Additional responsive code for 'section' */
+@media (max-width: 600px) {
+    section {
+        margin: 0 5%;
+        padding: 20px 10px;
+    }
+}
+ 
