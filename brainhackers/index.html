@@ -20,7 +20,7 @@
         }
 
         header {
-            background: url('static/images/brain2.png') no-repeat center center/cover;
+            background: url('../static/images/brain2.png') no-repeat center center/cover;
             color: #fff;
             height: 100vh;
             display: flex;
@@ -240,7 +240,7 @@
         }
 
         footer {
-            background: url('static/images/brain2.png') no-repeat center center/cover;
+            background: url('../static/images/brain2.png') no-repeat center center/cover;
             color: #fcfbfb;
             text-align: center;
             padding: 20px 0;
@@ -365,7 +365,7 @@
                     <h2>BrainHackers | Ep.1 | The Neuroscience of Self</h2>
                     <p>Explore the question: Who am I—and how can I change?</p>
                     <audio controls>
-                        <source src="static/episodes/Ep1_The_Neuroscience_of_Self.wav" type="audio/mpeg">
+                        <source src="../static/episodes/Ep1_The_Neuroscience_of_Self.wav" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -421,11 +421,11 @@
 <script>
    document.addEventListener('DOMContentLoaded', function () {
     const episodeData = [
-        { number: 1, title: 'The Neuroscience of Self', description: 'Explore the question: Who am I—and how can I change?', audioSrc: 'static/episodes/Ep1_The_Neuroscience_of_Self.wav' },
-        { number: 2, title: 'The Neuroscience of Authenticity', description: 'Discover how to be true to yourself and live authentically.', audioSrc: 'static/episodes/Ep.2_The Neuroscience of Authenticity.wav' },
-        { number: 3, title: 'The Neuroscience of Self-Acceptance', description: 'Learn how to embrace your true self and cultivate self-compassion.', audioSrc: 'static/episodes/Ep3_Mastering_Habits.wav' },
-        { number: 4, title: 'The Neuroscience of Self-Love', description: 'Break free from perfectionism and cultivate self-love and self-acceptance.', audioSrc: 'static/episodes/Ep4_Overcoming_Limiting_Beliefs.wav' },
-        { number: 5, title: 'The Neuroscience of Confidence', description: 'Unleash your inner confidence and step into your full potential.', audioSrc: 'static/episodes/Ep5_Emotional_Intelligence.wav' },
+        { number: 1, title: 'The Neuroscience of Self', description: 'Explore the question: Who am I—and how can I change?', audioSrc: '../static/episodes/Ep1_The_Neuroscience_of_Self.wav' },
+        { number: 2, title: 'The Neuroscience of Authenticity', description: 'Discover how to be true to yourself and live authentically.', audioSrc: '../static/episodes/Ep.2_The Neuroscience of Authenticity.wav' },
+        { number: 3, title: 'The Neuroscience of Self-Acceptance', description: 'Learn how to embrace your true self and cultivate self-compassion.', audioSrc: '../static/episodes/Ep3_Mastering_Habits.wav' },
+        { number: 4, title: 'The Neuroscience of Self-Love', description: 'Break free from perfectionism and cultivate self-love and self-acceptance.', audioSrc: '../static/episodes/Ep4_Overcoming_Limiting_Beliefs.wav' },
+        { number: 5, title: 'The Neuroscience of Confidence', description: 'Unleash your inner confidence and step into your full potential.', audioSrc: '../static/episodes/Ep5_Emotional_Intelligence.wav' },
     ];
 
     const episodes = document.querySelectorAll('.episode');

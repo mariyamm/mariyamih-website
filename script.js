@@ -109,21 +109,31 @@ document.querySelectorAll('.portfolio-modal').forEach(modal => {
             }
         });
     }
+    const language = navigator.language || navigator.userLanguage;
 
     function changeLanguage() {
             const language = document.getElementById('language-dropdown').value;
            
             if (language === 'en') {
                 window.location.href = 'index.html';
-            } else if (language === 'bg') {
-                window.location.href = 'bg.html';
-            } else if (language === 'fr') {
-                window.location.href = 'fr.html';
-
-            // Add more language redirections here
-        }
+            } else if (language.startsWith('bg')) {  
+                if (window.location.pathname !== "/bg/") {
+                    window.location.replace("/bg/");
+                }
+            
+            } else if (language.startsWith('fr')) {  
+                if (window.location.pathname !== "/fr/") {
+                    window.location.replace("/fr/");
+                }
+            
+            }
+        else if (language.startsWith('brainhackers')) {  
+            if (window.location.pathname !== "/brainhackers/") {
+                window.location.replace("/brainhackers/");
+            }
+        
     }
-
+}
 
 
 //For the How I work Section
@@ -141,3 +151,10 @@ window.addEventListener('scroll', () => {
 function scrollToContact() {
     alert('Contact form not implemented yet!');
 }
+
+
+//if (location.protocol !== 'https:') {
+//    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+//}
+
+//function changeLanguage() {}

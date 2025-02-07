@@ -4,20 +4,24 @@
     <loc>https://www.mariyamih.pro/</loc>
     <lastmod>2024-02-06</lastmod>
     <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.mariyamih.pro/bg.html</loc>
+    <loc>https://www.mariyamih.pro/bg/</loc>
     <lastmod>2024-02-06</lastmod>
     <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.mariyamih.pro/fr.html</loc>
+    <loc>https://www.mariyamih.pro/fr/</loc>
     <lastmod>2024-02-06</lastmod>
     <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.mariyamih.pro/brainhackers.html</loc>
+    <loc>https://www.mariyamih.pro/brainhackers/</loc>
     <lastmod>2024-02-06</lastmod>
     <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>
