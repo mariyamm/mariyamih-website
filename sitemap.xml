@@ -16,12 +16,30 @@
     <loc>https://www.mariyamih.pro/fr/</loc>
     <lastmod>2024-02-06</lastmod>
     <priority>0.80</priority>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.mariyamih.pro/brainhackers/</loc>
+    <loc>https://www.mariyamih.pro/all-blog-articles/</loc>
     <lastmod>2024-02-06</lastmod>
     <priority>0.80</priority>
     <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mariyamih.pro/all-blog-articles/how-to-integrate-ai-into-a-website/</loc>
+    <lastmod>2024-02-09</lastmod>
+    <priority>0.80</priority>
+    <changefreq>never</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mariyamih.pro/all-blog-articles/enhancing-user-experience-with-chatbot-messages/</loc>
+    <lastmod>2024-02-09</lastmod>
+    <priority>0.80</priority>
+    <changefreq>never</changefreq>
+  </url>
+    <url>
+    <loc>https://www.mariyamih.pro/all-blog-articles/all-blog-articles/build-your-own-humanlike-chatbot/</loc>
+    <lastmod>2024-02-09</lastmod>
+    <priority>0.80</priority>
+    <changefreq>never</changefreq>
   </url>
 </urlset>

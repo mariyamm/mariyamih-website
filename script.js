@@ -112,27 +112,28 @@ document.querySelectorAll('.portfolio-modal').forEach(modal => {
     const language = navigator.language || navigator.userLanguage;
 
     function changeLanguage() {
-            const language = document.getElementById('language-dropdown').value;
-           
-            if (language === 'en') {
-                window.location.href = 'index.html';
-            } else if (language.startsWith('bg')) {  
-                if (window.location.pathname !== "/bg/") {
-                    window.location.replace("/bg/");
-                }
-            
-            } else if (language.startsWith('fr')) {  
-                if (window.location.pathname !== "/fr/") {
-                    window.location.replace("/fr/");
-                }
-            
+        const language = document.getElementById('language-dropdown').value;
+        if(language.startsWith('en')) {
+        window.location.href = '/index.html';
+        } else if (language.startsWith('bg')) {  
+            if (window.location.pathname !== "/bg/") {
+            window.location.replace("/bg/");
             }
-        else if (language.startsWith('brainhackers')) {  
-            if (window.location.pathname !== "/brainhackers/") {
-                window.location.replace("/brainhackers/");
+        } else if (language.startsWith('fr')) {  
+            if (window.location.pathname !== "/fr/") {
+            window.location.replace("/fr/");
             }
-        
-    }
+        }
+
+    //else if (language.startsWith('all-blog-articles')) {  
+   //     if (window.location.pathname !== "/all-blog-articles/") {
+   //         window.location.replace("/all-blog-articles/");
+   //     }
+   // } else if (language.startsWith('all-blog-articles/how-to-integrate-ai-into-website')) {  
+   //     if (window.location.pathname !== "all-blog-articles/how-to-integrate-ai-into-website/") {
+   //         window.location.replace("all-blog-articles/how-to-integrate-ai-into-website/");
+    //    }
+   // }
 }
 
 
@@ -152,9 +153,4 @@ function scrollToContact() {
     alert('Contact form not implemented yet!');
 }
 
-
-//if (location.protocol !== 'https:') {
-//    location.replace(`https:${location.href.substring(location.protocol.length)}`);
-//}
-
-//function changeLanguage() {}
+     
