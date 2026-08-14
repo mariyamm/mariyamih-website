@@ -1,0 +1,634 @@
+---
+import ProjectCaseStudy from "../../components/ProjectCaseStudy.astro";
+
+const pageTitle = "AI Support Copilot for E-commerce | Mariya Mihaylova";
+
+const icons = {
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11.5A7 7 0 0 0 5 9.5C5 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>',
+  globe:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  cart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>',
+  person:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3.4"/><path d="M4.5 20c1-4.2 3.8-6.4 7.5-6.4s6.5 2.2 7.5 6.4"/></svg>',
+  clock:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+  stack:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>',
+  chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H10l-5 4v-4H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="6.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="10.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="14.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/></svg>',
+  sparkle:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>',
+  bulb: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M8.5 14A5.5 5.5 0 1 1 15.5 14c-.7 1-1.5 1.6-1.5 3h-4c0-1.4-.8-2-1.5-3z"/></svg>',
+  search:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>',
+  monitor:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+  checklist:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+  send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>',
+  list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg>',
+  flag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h13l-3 4.5L18 13H5"/></svg>',
+  chart:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+  workflow:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h6a4 4 0 0 1 4 4M7 18h6a4 4 0 0 0 4-4"/></svg>',
+  target:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>',
+  shield:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.8-7 9-3.5-1.2-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  peopleDuo:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="2.6"/><circle cx="16" cy="9" r="2.2"/><path d="M3.5 19c.8-3 3-4.6 5-4.6s4.2 1.6 5 4.6"/><path d="M14 14.6c2 0 4 1.4 4.8 4"/></svg>',
+  spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M7 12h10"/></svg>',
+  chain: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="8" height="8" rx="3"/><rect x="13" y="8" width="8" height="8" rx="3"/></svg>',
+  pySnake:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><circle cx="15" cy="16" r="4"/></svg>',
+  bag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+  database:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5V18c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8V5.5"/><path d="M4 12c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8"/></svg>',
+  api: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16a5 5 0 1 1 .9-9.9A6 6 0 0 1 20 9.5 4.5 4.5 0 0 1 19 18H8z"/></svg>',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="AI assistant that automates customer support, summarizes conversations and suggests actions in real-time."
+    />
+
+    <title>{pageTitle}</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+          MM
+        </a>
+
+        <div class="navigation">
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects" class="active-page">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+
+          <div class="language-switcher" aria-label="Language selector">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <ProjectCaseStudy
+      title="AI Support Copilot for E-commerce"
+      tagline="An AI assistant that helps support teams answer faster, reduce repetitive work, and improve customer experience."
+      description="An AI-powered support assistant built for e-commerce operations. It understands customer intents, retrieves order context from multiple systems, and drafts accurate, brand-aligned replies that agents can review and send with confidence."
+      heroImage="/images/project1.png"
+      heroImageAlt="AI Support Copilot dashboard showing a customer support ticket with an AI-generated suggested reply"
+      backLink="/projects"
+      meta={[
+        { icon: icons.cart, label: "Industry", value: "E-commerce" },
+        { icon: icons.person, label: "Role", value: "AI / Product Delivery" },
+        { icon: icons.clock, label: "Timeline", value: "8-12 weeks" },
+        {
+          icon: icons.stack,
+          label: "Stack",
+          value: "OpenAI, LangChain, Python, Shopify",
+        },
+      ]}
+      challenge={{
+        icon: icons.chat,
+        label: "The Challenge",
+        items: [
+          "High and growing ticket volume across channels",
+          "Repetitive questions on orders, shipping and returns",
+          "Fragmented order and customer information",
+          "Slow response times and inconsistent answers",
+          "Agents spend too much time searching for context",
+        ],
+      }}
+      solution={{
+        icon: icons.sparkle,
+        label: "The Solution",
+        items: [
+          "AI-assisted reply generation grounded in real context",
+          "Order-aware retrieval from multiple data sources",
+          "Knowledge base lookup with brand guidelines",
+          "Smart escalation suggestions for complex cases",
+          "Human-in-the-loop review before sending replies",
+        ],
+      }}
+      steps={[
+        {
+          icon: icons.chat,
+          title: "Customer request",
+          description:
+            "Customer sends a message via email, chat, or social media.",
+        },
+        {
+          icon: icons.bulb,
+          title: "Intent detection",
+          description: "AI identifies intent, sentiment and key entities.",
+        },
+        {
+          icon: icons.search,
+          title: "Knowledge & order retrieval",
+          description:
+            "Fetch relevant articles, policies and order details.",
+        },
+        {
+          icon: icons.monitor,
+          title: "AI response generation",
+          description: "Generate accurate, brand-aligned draft response.",
+        },
+        {
+          icon: icons.checklist,
+          title: "Agent review",
+          description:
+            "Agent reviews, edits if needed and validates the response.",
+        },
+        {
+          icon: icons.send,
+          title: "Send & learn",
+          description:
+            "Reply is sent and feedback is used to continuously improve.",
+        },
+      ]}
+      features={[
+        {
+          icon: icons.list,
+          title: "Ticket Summaries",
+          description:
+            "Instant AI summaries of long conversations and context.",
+        },
+        {
+          icon: icons.chat,
+          title: "Suggested Replies",
+          description:
+            "Context-aware draft replies ready for agent review.",
+        },
+        {
+          icon: icons.cart,
+          title: "Order Context",
+          description:
+            "Real-time order details, status and tracking information.",
+        },
+        {
+          icon: icons.flag,
+          title: "Smart Escalation",
+          description:
+            "Identify complex cases and suggest next best action.",
+        },
+        {
+          icon: icons.search,
+          title: "Knowledge Search",
+          description:
+            "Search across policies, FAQs and help articles.",
+        },
+        {
+          icon: icons.chart,
+          title: "Support Analytics",
+          description:
+            "Dashboards to track volume, performance and trends.",
+        },
+      ]}
+      contributions={[
+        {
+          icon: icons.search,
+          title: "Discovery & Requirements",
+          description:
+            "Partnered with stakeholders to understand pain points, workflows and success metrics. Defined MVP scope and data needs.",
+        },
+        {
+          icon: icons.workflow,
+          title: "Workflow Design",
+          description:
+            "Designed end-to-end user flows, data architecture and retrieval strategy for accurate and efficient answers.",
+        },
+        {
+          icon: icons.target,
+          title: "AI Solution Delivery",
+          description:
+            "Led AI integration using OpenAI and LangChain, built retrieval pipelines and delivery of the support copilot.",
+        },
+        {
+          icon: icons.checklist,
+          title: "Testing & Rollout",
+          description:
+            "Validated with real tickets, trained agents and rolled out iteratively with continuous feedback loops.",
+        },
+      ]}
+      impact={[
+        {
+          kind: "trend",
+          value: "Up to 60%",
+          title: "faster first-draft responses",
+          description:
+            "Significantly reduced time to produce accurate reply drafts.",
+        },
+        {
+          kind: "ring",
+          percent: 30,
+          value: "30%",
+          title: "reduction in repetitive manual work",
+          description:
+            "Agents spend more time on complex, high-value cases.",
+        },
+        {
+          kind: "rating",
+          stars: 5,
+          title: "Improved support consistency",
+          description:
+            "More consistent, on-brand answers across all agents and channels.",
+        },
+        {
+          kind: "bars",
+          title: "Better visibility into customer issues",
+          description:
+            "Real-time analytics help identify trends and product or policy gaps.",
+        },
+      ]}
+      techStack={[
+        { icon: icons.spark, label: "OpenAI API" },
+        { icon: icons.chain, label: "LangChain" },
+        { icon: icons.pySnake, label: "Python" },
+        { icon: icons.bag, label: "Shopify" },
+        { icon: icons.database, label: "SQL / Vector DB" },
+        { icon: icons.api, label: "REST APIs" },
+        { icon: icons.chart, label: "Analytics (Metabase)" },
+      ]}
+      mattered={[
+        {
+          icon: icons.shield,
+          title: "Accuracy & hallucination control",
+          description:
+            "Grounding answers in reliable sources and order data to ensure accuracy and trust.",
+        },
+        {
+          icon: icons.peopleDuo,
+          title: "Human-in-the-loop review",
+          description:
+            "Empowering agents with suggestions while keeping humans in control of customer communication.",
+        },
+        {
+          icon: icons.person,
+          title: "Operational adoption",
+          description:
+            "Simple UX, clear workflows and training to drive adoption and long-term impact.",
+        },
+      ]}
+      ctaHeading="Want something similar for your team?"
+      ctaDescription="Let's explore how AI can transform your customer support operations."
+    />
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+            MM
+          </a>
+          <p class="footer-tagline">
+            AI Transformation & Digital Delivery Consultant
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.globe} />
+            Available worldwide
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Quick Links</p>
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects" class="footer-link-active">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Connect</p>
+          <a href="mailto:mariya@mariyamihaylova.com" class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.mail} />
+            mariya@mariyamihaylova.com
+          </a>
+          <p class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Languages</p>
+          <p class="footer-note">
+            This website is available in English / Français.
+          </p>
+          <div class="footer-lang-links">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Mariya Mihaylova. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #061426;
+    color: #f5f7fa;
+    font-family:
+      Inter,
+      Arial,
+      Helvetica,
+      sans-serif;
+  }
+
+  :global(img) {
+    display: block;
+    max-width: 100%;
+  }
+
+  header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    min-height: 88px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  .logo {
+    color: #45c7ff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    text-decoration: none;
+    text-shadow: 0 0 20px rgba(69, 199, 255, 0.32);
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .navigation > a {
+    position: relative;
+    color: rgba(245, 247, 250, 0.78);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .navigation > a::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    background: #1d63ff;
+    content: "";
+    opacity: 0;
+    transform: scaleX(0);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .navigation > a:hover {
+    color: #ffffff;
+  }
+
+  .navigation > a:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .navigation > a.active-page {
+    color: #45c7ff;
+  }
+
+  .navigation > a.active-page::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .language-switcher a {
+    color: rgba(245, 247, 250, 0.62);
+    text-decoration: none;
+  }
+
+  .language-switcher .active-language {
+    color: #45c7ff;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    background: #030d1b;
+    padding-top: 70px;
+  }
+
+  .footer-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 30px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .footer-tagline {
+    max-width: 220px;
+    margin: 16px 0 18px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13px;
+  }
+
+  .footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #45c7ff;
+  }
+
+  .footer-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .footer-heading {
+    margin: 0 0 4px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-column a {
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-column a:hover {
+    color: #45c7ff;
+  }
+
+  .footer-link-active {
+    color: #45c7ff !important;
+  }
+
+  .footer-link-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-link-icon:hover {
+    color: #45c7ff;
+  }
+
+  .footer-note {
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-lang-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .footer-lang-links a {
+    color: rgba(245, 247, 250, 0.62);
+  }
+
+  .footer-lang-links .active-language {
+    color: #45c7ff;
+  }
+
+  .footer-bottom {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 auto;
+    padding: 24px 0;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 12.5px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(245, 247, 250, 0.4);
+    text-decoration: none;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #45c7ff;
+  }
+
+  @media (max-width: 760px) {
+    nav {
+      width: min(100% - 30px, 1180px);
+    }
+
+    .navigation > a:not(.active-page) {
+      display: none;
+    }
+
+    .footer-inner {
+      grid-template-columns: 1fr;
+      row-gap: 34px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

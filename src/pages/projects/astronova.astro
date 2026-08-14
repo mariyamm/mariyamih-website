@@ -1,0 +1,606 @@
+---
+import ProjectCaseStudy from "../../components/ProjectCaseStudy.astro";
+
+const pageTitle = "AstroNova | Mariya Mihaylova";
+
+const icons = {
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11.5A7 7 0 0 0 5 9.5C5 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>',
+  globe:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>',
+  person:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3.4"/><path d="M4.5 20c1-4.2 3.8-6.4 7.5-6.4s6.5 2.2 7.5 6.4"/></svg>',
+  clock:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+  stack:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>',
+  sparkle:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>',
+  bulb: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M8.5 14A5.5 5.5 0 1 1 15.5 14c-.7 1-1.5 1.6-1.5 3h-4c0-1.4-.8-2-1.5-3z"/></svg>',
+  search:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>',
+  monitor:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+  checklist:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+  send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>',
+  gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"/></svg>',
+  list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg>',
+  bag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+  target:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>',
+  spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M7 12h10"/></svg>',
+  database:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5V18c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8V5.5"/><path d="M4 12c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8"/></svg>',
+  shield:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.8-7 9-3.5-1.2-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  peopleDuo:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="2.6"/><circle cx="16" cy="9" r="2.2"/><path d="M3.5 19c.8-3 3-4.6 5-4.6s4.2 1.6 5 4.6"/><path d="M14 14.6c2 0 4 1.4 4.8 4"/></svg>',
+  pySnake:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><circle cx="15" cy="16" r="4"/></svg>',
+  code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg>',
+  api: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16a5 5 0 1 1 .9-9.9A6 6 0 0 1 20 9.5 4.5 4.5 0 0 1 19 18H8z"/></svg>',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="AI-powered platform that generates detailed, personalized astrology reports from astrology chart data."
+    />
+
+    <title>{pageTitle}</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+          MM
+        </a>
+
+        <div class="navigation">
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects" class="active-page">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+
+          <div class="language-switcher" aria-label="Language selector">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <ProjectCaseStudy
+      title="AstroNova"
+      tagline="AI-Powered Astrology Report Platform"
+      description="An AI-powered platform that generates detailed, personalized astrology reports from astrology chart data. AstroNova combines traditional astrological knowledge with advanced AI to deliver accurate interpretations, structured insights, and beautiful, shareable reports."
+      heroImage="/images/astronova.png"
+      heroImageAlt="AstroNova dashboard showing a natal chart, AI astrology insights and a generated report"
+      backLink="/projects"
+      meta={[
+        {
+          icon: icons.person,
+          label: "Role",
+          value: "Product / Technical Delivery",
+        },
+        { icon: icons.moon, label: "Industry", value: "Astrology / Spiritual Tech" },
+        { icon: icons.clock, label: "Timeline", value: "12-16 weeks" },
+        {
+          icon: icons.stack,
+          label: "Stack",
+          value: "Next.js, Python, PostgreSQL, OpenAI API, Swiss Ephemeris, Redis, Stripe",
+        },
+      ]}
+      challenge={{
+        icon: icons.bulb,
+        label: "The Challenge",
+        items: [
+          "Astrology reports are traditionally time-consuming and complex to create",
+          "Astrologers needed a faster way to deliver accurate, high-quality reports",
+          "Maintaining consistency across interpretations and report formats",
+          "Users wanted beautiful, easy-to-understand reports with deep insights",
+          "The team needed an AI solution grounded in authentic astrological logic",
+        ],
+      }}
+      solution={{
+        icon: icons.sparkle,
+        label: "The Solution",
+        items: [
+          "Built an AI-enhanced platform that generates astrology reports from chart data",
+          "AI analyzes planetary placements, aspects, houses and transits to create insights",
+          "Automated interpretation engine produces structured, comprehensive reports",
+          "Pre-built templates for different report types (Natal, Compatibility, Transit, etc.)",
+          "Delivered scalable, accurate and beautifully designed reports in seconds",
+        ],
+      }}
+      steps={[
+        {
+          icon: icons.person,
+          title: "Chart Input",
+          description: "User inputs birth details or uploads chart data.",
+        },
+        {
+          icon: icons.gear,
+          title: "Data Processing",
+          description:
+            "System calculates planetary positions, houses and aspects.",
+        },
+        {
+          icon: icons.sparkle,
+          title: "AI Chart Analysis",
+          description:
+            "AI analyzes placements, aspects and patterns using astrological knowledge and models.",
+        },
+        {
+          icon: icons.monitor,
+          title: "Report Generation",
+          description:
+            "AI compiles interpretations into a structured, easy-to-read astrology report.",
+        },
+        {
+          icon: icons.checklist,
+          title: "Review & Customize",
+          description:
+            "Astrologers review, fine-tune and add personal notes or recommendations.",
+        },
+        {
+          icon: icons.send,
+          title: "Deliver & Share",
+          description:
+            "Reports are delivered to clients as beautiful PDFs or secure online links.",
+        },
+      ]}
+      features={[
+        {
+          icon: icons.list,
+          title: "Chart Management",
+          description:
+            "Create & store birth charts, bulk chart upload, ephemeris integrations, horoscope system options.",
+        },
+        {
+          icon: icons.sparkle,
+          title: "AI Report Generation",
+          description:
+            "AI-powered chart analysis, Natal/Transit/Synastry reports, placement & aspect interpretations, personalized insights.",
+        },
+        {
+          icon: icons.stack,
+          title: "Report Templates",
+          description:
+            "Multiple report types, customizable sections, branded PDF outputs, multi-language support.",
+        },
+        {
+          icon: icons.search,
+          title: "Report Library",
+          description:
+            "Organized client reports, search & filter, version history, secure access control.",
+        },
+        {
+          icon: icons.person,
+          title: "Client Dashboard",
+          description:
+            "View & download reports, reading history, profile & preferences, secure messaging.",
+        },
+        {
+          icon: icons.bag,
+          title: "Billing & Subscriptions",
+          description:
+            "Subscription plans, usage & report limits, Stripe integration, invoice management.",
+        },
+      ]}
+      contributions={[
+        {
+          icon: icons.target,
+          title: "Product Strategy",
+          description: "Defined AI report vision, user flows and roadmap.",
+        },
+        {
+          icon: icons.search,
+          title: "Requirements",
+          description:
+            "Gathered needs, defined functional and technical requirements.",
+        },
+        {
+          icon: icons.spark,
+          title: "AI Model Integration",
+          description:
+            "Integrated OpenAI models for natural language astrology insights.",
+        },
+        {
+          icon: icons.database,
+          title: "Backend Coordination",
+          description:
+            "Collaborated on chart calculations, data models and report rendering.",
+        },
+        {
+          icon: icons.monitor,
+          title: "Design System & UI",
+          description:
+            "Led UI/UX for report experience and dashboard components.",
+        },
+      ]}
+      impact={[
+        {
+          kind: "trend",
+          value: "70%+",
+          title: "Reduction in report creation time",
+          description: "From hours to under 1 minute per report.",
+        },
+        {
+          kind: "ring",
+          percent: 99.6,
+          value: "99.6%",
+          title: "Accurate planetary & aspect calculations",
+          description: "Reliable, error-free report generation.",
+        },
+        {
+          kind: "trend",
+          value: "60%",
+          title: "Increase in astrologer productivity",
+          description: "More reports completed daily with higher quality.",
+        },
+        {
+          kind: "trend",
+          value: "85%",
+          title: "Faster client delivery with AI automation",
+          description: "Reports delivered in seconds, not hours.",
+        },
+        {
+          kind: "trend",
+          value: "25%+",
+          title: "Growth in monthly active users",
+          description: "More users generating and sharing reports.",
+        },
+        {
+          kind: "bars",
+          title: "Scalable, personalized reporting",
+          description:
+            "AI enables consistent, accurate reports for thousands of users.",
+        },
+      ]}
+      techStack={[
+        { icon: icons.monitor, label: "Next.js" },
+        { icon: icons.code, label: "TypeScript" },
+        { icon: icons.pySnake, label: "Python" },
+        { icon: icons.database, label: "PostgreSQL" },
+        { icon: icons.moon, label: "Swiss Ephemeris" },
+        { icon: icons.api, label: "Redis" },
+        { icon: icons.bag, label: "Stripe" },
+        { icon: icons.spark, label: "OpenAI API" },
+      ]}
+      mattered={[
+        {
+          icon: icons.shield,
+          title: "Accuracy & astrological integrity",
+          description:
+            "Grounding AI interpretations in traditional astrological logic to ensure trustworthy, authentic insights.",
+        },
+        {
+          icon: icons.peopleDuo,
+          title: "Astrologer-in-the-loop review",
+          description:
+            "Empowering astrologers to review, refine and personalize AI-generated reports before delivery.",
+        },
+        {
+          icon: icons.person,
+          title: "Beautiful, accessible reports",
+          description:
+            "Clear, shareable report design that makes complex astrology easy to understand for clients.",
+        },
+      ]}
+      ctaHeading="Let's build something useful."
+      ctaDescription="If you have an AI, automation, or spiritual product challenge, let's turn it into a clear and executable solution."
+    />
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+            MM
+          </a>
+          <p class="footer-tagline">
+            AI Transformation & Digital Delivery Consultant
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.globe} />
+            Available worldwide
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Quick Links</p>
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects" class="footer-link-active">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Connect</p>
+          <a href="mailto:mariya@mariyamihaylova.com" class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.mail} />
+            mariya@mariyamihaylova.com
+          </a>
+          <p class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Languages</p>
+          <p class="footer-note">
+            This website is available in English / Français.
+          </p>
+          <div class="footer-lang-links">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Mariya Mihaylova. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #061426;
+    color: #f5f7fa;
+    font-family:
+      Inter,
+      Arial,
+      Helvetica,
+      sans-serif;
+  }
+
+  :global(img) {
+    display: block;
+    max-width: 100%;
+  }
+
+  header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    min-height: 88px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  .logo {
+    color: #45c7ff;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+
+  .navigation a {
+    color: rgba(245, 247, 250, 0.75);
+    font-size: 14.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 160ms ease;
+  }
+
+  .navigation a:hover {
+    color: #ffffff;
+  }
+
+  .active-page {
+    color: #ffffff !important;
+  }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 6px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 13px;
+  }
+
+  .language-switcher a {
+    color: rgba(245, 247, 250, 0.4);
+  }
+
+  .active-language {
+    color: #ffffff !important;
+    font-weight: 700;
+  }
+
+  footer {
+    background: #030d1b;
+    padding-top: 70px;
+  }
+
+  .footer-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 30px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .footer-tagline {
+    max-width: 220px;
+    margin: 16px 0 14px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13px;
+  }
+
+  .footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #45c7ff;
+  }
+
+  .footer-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer-heading {
+    margin: 0 0 16px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-column a {
+    color: rgba(245, 247, 250, 0.7);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-column a:hover {
+    color: #45c7ff;
+  }
+
+  .footer-link-active {
+    color: #45c7ff !important;
+  }
+
+  .footer-link-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: rgba(245, 247, 250, 0.7);
+    font-size: 13.5px;
+  }
+
+  .footer-note {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .footer-lang-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 26px 0;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 13px;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 22px;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(245, 247, 250, 0.4);
+    text-decoration: none;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #45c7ff;
+  }
+
+  @media (max-width: 950px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 40px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .navigation {
+      display: none;
+    }
+
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+  }
+</style>

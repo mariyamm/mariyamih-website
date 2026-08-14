@@ -1,0 +1,1874 @@
+---
+const pageTitle = "Projects | Mariya Mihaylova";
+
+const icons = {
+  search:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>',
+  list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg>',
+  robot:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V4M9 4h6"/><circle cx="9" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M9 16.5h6"/></svg>',
+  gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"/></svg>',
+  cart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>',
+  chart:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+  building:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16M5 21V10M19 21V10M3 10l9-6 9 6M9 21v-7M15 21v-7"/></svg>',
+  rocket:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 2 5 6 5 10 0 2-1 4-2 5l-3 3-3-3c-1-1-2-3-2-5 0-4 2-8 5-10z"/><circle cx="12" cy="10" r="1.6" fill="currentColor" stroke="none"/><path d="M8.5 16 6 21l3-1.5M15.5 16 18 21l-3-1.5"/></svg>',
+  trendUp:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg>',
+  trendDown:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l6 6 4-4 8 8"/><path d="M15 17h6v-6"/></svg>',
+  sparkle:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>',
+  box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg>',
+  globe:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H10l-5 4v-4H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="6.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="10.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="14.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/></svg>',
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11.5A7 7 0 0 0 5 9.5C5 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>',
+};
+
+const filters = [
+  { icon: icons.list, label: "All" },
+  { icon: icons.robot, label: "All Assistants" },
+  { icon: icons.gear, label: "Automation" },
+  { icon: icons.cart, label: "E-commerce" },
+  { icon: icons.chart, label: "Data & Analytics" },
+  { icon: icons.building, label: "Internal Tools" },
+  { icon: icons.rocket, label: "Delivery" },
+];
+
+const featuredStats = [
+  {
+    icon: icons.trendDown,
+    value: "30%",
+    label: "Reduction in response time",
+  },
+  {
+    icon: icons.robot,
+    value: "60%",
+    label: "Tickets resolved by AI",
+  },
+  {
+    icon: icons.sparkle,
+    value: "92%",
+    label: "Customer satisfaction",
+  },
+];
+
+const projects = [
+  {
+    title: "AstroNova",
+    description:
+      "AI-powered platform that generates detailed, personalized astrology reports from astrology chart data.",
+    tags: ["AI Assistants", "SaaS", "OpenAI", "Next.js"],
+    thumb: "/images/astronova.png",
+    href: "/projects/astronova",
+  },
+  {
+    title: "AI Support Copilot for E-commerce",
+    description:
+      "AI assistant that automates customer support, summarizes conversations and suggests actions in real-time.",
+    tags: ["AI Assistants", "E-commerce", "NLP", "OpenAI"],
+    thumb: "/images/project1.png",
+    href: "/projects/ai-support-copilot",
+  },
+  {
+    title: "MAIA",
+    description:
+      "A secure AI assistant that helps teams search, analyze and synthesize internal documentation faster.",
+    tags: ["AI Assistants", "Internal Tools", "RAG", "LangChain"],
+    thumb: "/images/MAIA_header_image.png",
+    href: "/projects/maia",
+  },
+  {
+    title: "E-commerce Intelligence Dashboard",
+    description:
+      "A real-time analytics dashboard connecting sales, customer, and operational data to support faster decisions.",
+    tags: ["Analytics", "E-commerce", "SQL", "Python"],
+    thumb: "/images/MAIA_header_image.png",
+    href: "/projects/e-commerce-intelligence-dashboard",
+  },
+];
+
+const stats = [
+  {
+    icon: icons.box,
+    value: "24+",
+    label: "Projects delivered",
+    description: "Across startups and enterprises",
+  },
+  {
+    icon: icons.globe,
+    value: "10+",
+    label: "Industries served",
+    description: "E-commerce, SaaS, Health, Fintech and more",
+  },
+  {
+    icon: icons.robot,
+    value: "AI & Automation",
+    label: "Core focus",
+    description: "AI assistants, automation and data solutions",
+  },
+  {
+    icon: icons.rocket,
+    value: "End-to-end delivery",
+    label: "",
+    description:
+      "From strategy & discovery to delivery, adoption and measurable impact",
+  },
+];
+
+const processSteps = [
+  {
+    number: 1,
+    title: "Discover",
+    description:
+      "Understand your goals, challenges and data to define the right problem.",
+  },
+  {
+    number: 2,
+    title: "Design",
+    description:
+      "Co-create the solution approach, architecture and success metrics.",
+  },
+  {
+    number: 3,
+    title: "Build",
+    description:
+      "Develop, integrate and test with agility and quality built-in.",
+  },
+  {
+    number: 4,
+    title: "Deliver & scale",
+    description:
+      "Launch, measure impact and continuously optimize for long-term value.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Selected work in AI, automation and digital delivery - turning complex business problems into practical AI solutions and modern digital products."
+    />
+
+    <title>{pageTitle}</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+          MM
+        </a>
+
+        <div class="navigation">
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects" class="active-page">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+
+          <div class="language-switcher" aria-label="Language selector">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="projects-hero">
+        <div class="projects-hero-inner">
+          <div class="projects-hero-copy">
+            <p class="label">Projects</p>
+
+            <h1>
+              Selected work in AI, automation and{" "}
+              <span>digital delivery.</span>
+            </h1>
+
+            <p class="description">
+              Turning complex business problems into practical AI
+              solutions, intelligent automation and modern digital
+              products that deliver measurable impact.
+            </p>
+
+            <div class="buttons">
+              <a href="/contact" class="primary-button">
+                Book a consultation
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <a href="/contact" class="secondary-button">
+                Discuss a project
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-dash-card">
+              <p class="hero-dash-title">Overview</p>
+
+              <div class="hero-dash-stats">
+                <div class="hero-dash-stat">
+                  <p>12,842</p>
+                  <span>Conversations</span>
+                </div>
+                <div class="hero-dash-stat">
+                  <p>92%</p>
+                  <span>Resolution</span>
+                </div>
+                <div class="hero-dash-stat">
+                  <p>1m 32s</p>
+                  <span>Response</span>
+                </div>
+              </div>
+
+              <svg
+                viewBox="0 0 200 50"
+                class="hero-dash-chart"
+                preserveAspectRatio="none"
+              >
+                <polyline
+                  points="0,38 20,34 40,36 60,25 80,30 100,15 120,22 140,10 160,18 180,8 200,14"
+                  fill="none"
+                  stroke="#45c7ff"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+
+            <div class="hero-floating-card hero-floating-top">
+              <span class="hero-floating-icon" set:html={icons.sparkle} />
+              <div>
+                <p class="hero-floating-title">AI Copilot</p>
+                <p class="hero-floating-subtitle">automation running</p>
+              </div>
+            </div>
+
+            <div class="hero-floating-card hero-floating-bottom">
+              <span class="hero-floating-icon" set:html={icons.chat} />
+              <div>
+                <p class="hero-floating-title">How can I help?</p>
+                <p class="hero-floating-subtitle">3 workflows active</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="filter-bar">
+        <div class="filter-bar-inner">
+          <div class="search-box">
+            <span class="search-box-icon" set:html={icons.search} />
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search projects..."
+              aria-label="Search projects"
+            />
+          </div>
+
+          <div class="filters">
+            {
+              filters.map((filter, index) => (
+                <button
+                  type="button"
+                  class="filter-tab"
+                  class:list={[{ active: index === 0 }]}
+                  data-filter-tab
+                >
+                  <span class="filter-tab-icon" set:html={filter.icon} />
+                  {filter.label}
+                </button>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <section class="featured-project">
+        <div class="featured-project-inner">
+          <div class="dash-mock">
+            <div class="dash-sidebar">
+              <p class="dash-sidebar-title">AI Support Copilot</p>
+              <div class="dash-sidebar-nav">
+                <span class="dash-sidebar-item active">Overview</span>
+                <span class="dash-sidebar-item">Conversations</span>
+                <span class="dash-sidebar-item">Analytics</span>
+                <span class="dash-sidebar-item">Knowledge</span>
+                <span class="dash-sidebar-item">Integrations</span>
+                <span class="dash-sidebar-item">Settings</span>
+              </div>
+            </div>
+
+            <div class="dash-main">
+              <p class="dash-main-title">Overview</p>
+
+              <div class="dash-stats-row">
+                <div class="dash-stat">
+                  <p class="dash-stat-value">
+                    12,842 <span class="dash-stat-delta up">+18%</span>
+                  </p>
+                  <p class="dash-stat-label">Total conversations</p>
+                </div>
+                <div class="dash-stat">
+                  <p class="dash-stat-value">
+                    92% <span class="dash-stat-delta up">+5%</span>
+                  </p>
+                  <p class="dash-stat-label">Resolution rate</p>
+                </div>
+                <div class="dash-stat">
+                  <p class="dash-stat-value">
+                    1m 32s <span class="dash-stat-delta down">-21%</span>
+                  </p>
+                  <p class="dash-stat-label">Avg. response time</p>
+                </div>
+              </div>
+
+              <div class="dash-panels-row">
+                <div class="dash-chart-panel">
+                  <p class="dash-panel-label">Conversations over time</p>
+                  <svg
+                    viewBox="0 0 200 60"
+                    class="dash-chart-svg"
+                    preserveAspectRatio="none"
+                  >
+                    <polyline
+                      points="0,45 20,40 40,42 60,30 80,35 100,20 120,28 140,15 160,22 180,10 200,18"
+                      fill="none"
+                      stroke="#45c7ff"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+
+                <div class="dash-list-panel">
+                  <p class="dash-panel-label">Top intents</p>
+                  <div class="dash-list-row">
+                    <span>Order tracking</span><span>30%</span>
+                  </div>
+                  <div class="dash-list-row">
+                    <span>Returns & refunds</span><span>22%</span>
+                  </div>
+                  <div class="dash-list-row">
+                    <span>Product information</span><span>18%</span>
+                  </div>
+                  <div class="dash-list-row">
+                    <span>Shipping</span><span>15%</span>
+                  </div>
+                  <div class="dash-list-row">
+                    <span>Account & billing</span><span>10%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="featured-project-copy">
+            <p class="section-label">Featured Project</p>
+            <h2>AI Support Copilot for E-commerce</h2>
+            <p class="featured-project-description">
+              An AI assistant that helps e-commerce teams answer
+              customer questions faster, reduce tickets and improve
+              customer satisfaction across all channels.
+            </p>
+
+            <div class="featured-stats-row">
+              {
+                featuredStats.map((stat) => (
+                  <div class="featured-stat">
+                    <span
+                      class="featured-stat-icon"
+                      set:html={stat.icon}
+                    />
+                    <p class="featured-stat-value">{stat.value}</p>
+                    <p class="featured-stat-label">{stat.label}</p>
+                  </div>
+                ))
+              }
+            </div>
+
+            <div class="buttons">
+              <a
+                href="/projects/ai-support-copilot"
+                class="primary-button"
+              >
+                View case study
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <a href="#all-projects" class="secondary-button">
+                View all projects
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="all-projects" class="all-projects">
+        <div class="all-projects-inner">
+          <p class="section-label">All Projects</p>
+
+          <div class="projects-grid">
+            {
+              projects.map((project) => {
+                const CardTag = project.href ? "a" : "div";
+                return (
+                  <CardTag
+                    class="project-card"
+                    {...(project.href ? { href: project.href } : {})}
+                  >
+                    {project.thumb ? (
+                      <div class="project-thumb project-thumb-image-shell">
+                        <img
+                          src={project.thumb}
+                          alt={project.title}
+                          class="project-thumb-image"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        class="project-thumb project-thumb-light"
+                        aria-hidden="true"
+                      >
+                        <span class="project-thumb-dot" />
+                        <span class="project-thumb-dot" />
+                        <span class="project-thumb-dot" />
+                        <div class="project-thumb-body">
+                          <div class="project-thumb-line" />
+                          <div class="project-thumb-line" />
+                          <div class="project-thumb-line short" />
+                        </div>
+                      </div>
+                    )}
+
+                    <p class="project-title">{project.title}</p>
+                    <p class="project-description">
+                      {project.description}
+                    </p>
+
+                    <div class="project-tags">
+                      {
+                        project.tags.map((tag) => (
+                          <span class="project-tag">{tag}</span>
+                        ))
+                      }
+                    </div>
+
+                    {project.href ? (
+                      <span class="project-view-link">
+                        View project
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    ) : (
+                      <span class="project-view-link project-view-link-soon">
+                        View project
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    )}
+                  </CardTag>
+                );
+              })
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-stats">
+        <div class="projects-stats-inner">
+          {
+            stats.map((stat) => (
+              <div class="projects-stat-card">
+                <span class="projects-stat-icon" set:html={stat.icon} />
+                <p class="projects-stat-value">{stat.value}</p>
+                {stat.label ? (
+                  <p class="projects-stat-label">{stat.label}</p>
+                ) : null}
+                <p class="projects-stat-description">
+                  {stat.description}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="process">
+        <div class="process-inner">
+          <p class="section-label">From Idea to Impact</p>
+          <h2>How I approach every project</h2>
+
+          <div class="process-row">
+            {
+              processSteps.map((step) => (
+                <div class="process-step">
+                  <div class="process-step-number">{step.number}</div>
+                  <p class="process-step-title">{step.title}</p>
+                  <p class="process-step-description">
+                    {step.description}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+
+          <a href="/expertise" class="secondary-button">
+            Learn more about my process
+          </a>
+        </div>
+      </section>
+
+      <section class="projects-cta">
+        <div class="projects-cta-inner">
+          <span class="projects-cta-icon" set:html={icons.rocket} />
+          <h2>
+            Looking for a partner who can turn ideas into execution?
+          </h2>
+          <p class="projects-cta-description">
+            Let's build AI, automation or digital solutions that
+            drive real results.
+          </p>
+
+          <a href="/contact" class="primary-button">
+            Book a consultation
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+            MM
+          </a>
+          <p class="footer-tagline">
+            AI Transformation & Digital Delivery Consultant
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.globe} />
+            Available worldwide
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Quick Links</p>
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects" class="footer-link-active">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Connect</p>
+          <a href="mailto:mariya@mariyamihaylova.com" class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.mail} />
+            mariya@mariyamihaylova.com
+          </a>
+          <p class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Languages</p>
+          <p class="footer-note">
+            This website is available in English / Français.
+          </p>
+          <div class="footer-lang-links">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Mariya Mihaylova. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const filterTabs = document.querySelectorAll("[data-filter-tab]");
+
+      filterTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          filterTabs.forEach((other) => other.classList.remove("active"));
+          tab.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #061426;
+    color: #f5f7fa;
+    font-family:
+      Inter,
+      Arial,
+      Helvetica,
+      sans-serif;
+  }
+
+  :global(img) {
+    display: block;
+    max-width: 100%;
+  }
+
+  header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    min-height: 88px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  .logo {
+    color: #45c7ff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    text-decoration: none;
+    text-shadow: 0 0 20px rgba(69, 199, 255, 0.32);
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .navigation > a {
+    position: relative;
+    color: rgba(245, 247, 250, 0.78);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .navigation > a::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    background: #1d63ff;
+    content: "";
+    opacity: 0;
+    transform: scaleX(0);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .navigation > a:hover {
+    color: #ffffff;
+  }
+
+  .navigation > a:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .navigation > a.active-page {
+    color: #45c7ff;
+  }
+
+  .navigation > a.active-page::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .language-switcher a {
+    color: rgba(245, 247, 250, 0.62);
+    text-decoration: none;
+  }
+
+  .language-switcher .active-language {
+    color: #45c7ff;
+  }
+
+  .label {
+    width: fit-content;
+    margin: 0 0 22px;
+    border: 1px solid rgba(69, 199, 255, 0.58);
+    border-radius: 4px;
+    color: #45c7ff;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .section-label {
+    margin: 0 0 16px;
+    color: #1d63ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  main section h2 {
+    max-width: 640px;
+    margin: 0 0 20px;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    max-width: 540px;
+    margin: 0;
+    font-size: clamp(32px, 3.8vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  h1 span {
+    color: #45c7ff;
+  }
+
+  .description {
+    max-width: 460px;
+    margin: 18px 0 0;
+    color: rgba(245, 247, 250, 0.65);
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 0 22px;
+    font-weight: 700;
+    font-size: 14.5px;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .primary-button:hover,
+  .secondary-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .primary-button {
+    background: #1d63ff;
+    color: white;
+    box-shadow: 0 14px 32px rgba(29, 99, 255, 0.28);
+  }
+
+  .primary-button:hover {
+    background: #3476ff;
+  }
+
+  .secondary-button {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .secondary-button:hover {
+    border-color: rgba(69, 199, 255, 0.7);
+  }
+
+  /* ---------- Hero ---------- */
+
+  .projects-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .projects-hero-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+    padding: 44px 0 70px;
+  }
+
+  .hero-visual {
+    position: relative;
+    min-height: 320px;
+  }
+
+  .hero-dash-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: rgba(11, 31, 61, 0.85);
+    padding: 22px 22px 26px;
+    box-shadow: 0 30px 60px rgba(3, 10, 22, 0.5);
+  }
+
+  .hero-dash-title {
+    margin: 0 0 16px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .hero-dash-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .hero-dash-stat {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px 10px;
+    text-align: center;
+  }
+
+  .hero-dash-stat p {
+    margin: 0 0 4px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .hero-dash-stat span {
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 10.5px;
+  }
+
+  .hero-dash-chart {
+    display: block;
+    width: 100%;
+    height: 70px;
+  }
+
+  .hero-floating-card {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: #0b1f3d;
+    padding: 12px 16px;
+    box-shadow: 0 20px 40px rgba(3, 10, 22, 0.5);
+  }
+
+  .hero-floating-top {
+    top: -18px;
+    right: -10px;
+  }
+
+  .hero-floating-bottom {
+    right: -18px;
+    bottom: -22px;
+  }
+
+  .hero-floating-icon {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(69, 199, 255, 0.15);
+    color: #45c7ff;
+  }
+
+  .hero-floating-icon :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero-floating-title {
+    margin: 0;
+    font-size: 12.5px;
+    font-weight: 700;
+  }
+
+  .hero-floating-subtitle {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 10.5px;
+  }
+
+  /* ---------- Filter bar ---------- */
+
+  .filter-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: #061426;
+  }
+
+  .filter-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    width: min(1180px, calc(100% - 48px));
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto;
+    padding: 18px 0;
+  }
+
+  .search-box {
+    position: relative;
+    min-width: 220px;
+  }
+
+  .search-box-icon {
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    display: flex;
+    color: rgba(245, 247, 250, 0.4);
+    transform: translateY(-50%);
+  }
+
+  .search-box-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .search-input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #f5f7fa;
+    padding: 10px 14px 10px 36px;
+    font-family: inherit;
+    font-size: 13.5px;
+  }
+
+  .search-input::placeholder {
+    color: rgba(245, 247, 250, 0.35);
+  }
+
+  .search-input:focus {
+    border-color: rgba(69, 199, 255, 0.5);
+    outline: none;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 7px;
+    background: transparent;
+    color: rgba(245, 247, 250, 0.65);
+    cursor: pointer;
+    padding: 9px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    transition:
+      background 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .filter-tab-icon {
+    display: flex;
+  }
+
+  .filter-tab-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .filter-tab:hover {
+    border-color: rgba(69, 199, 255, 0.4);
+    color: #ffffff;
+  }
+
+  .filter-tab.active {
+    border-color: #1d63ff;
+    background: #1d63ff;
+    color: #ffffff;
+  }
+
+  /* ---------- Featured project ---------- */
+
+  .featured-project {
+    background: #061426;
+    padding: 70px 0;
+  }
+
+  .featured-project-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1.15fr 1fr;
+    align-items: stretch;
+    gap: 36px;
+    margin: 0 auto;
+    border: 1px solid rgba(69, 199, 255, 0.25);
+    border-radius: 18px;
+    background: linear-gradient(
+      135deg,
+      rgba(29, 99, 255, 0.08),
+      rgba(69, 199, 255, 0.03)
+    );
+    padding: 30px;
+  }
+
+  .dash-mock {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: #0b1f3d;
+    overflow: hidden;
+  }
+
+  .dash-sidebar {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 16px 12px;
+  }
+
+  .dash-sidebar-title {
+    margin: 0 0 14px;
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .dash-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dash-sidebar-item {
+    border-radius: 6px;
+    padding: 6px 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 11px;
+  }
+
+  .dash-sidebar-item.active {
+    background: rgba(69, 199, 255, 0.15);
+    color: #45c7ff;
+    font-weight: 700;
+  }
+
+  .dash-main {
+    padding: 18px 20px;
+  }
+
+  .dash-main-title {
+    margin: 0 0 14px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .dash-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .dash-stat {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 10px;
+  }
+
+  .dash-stat-value {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 4px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .dash-stat-delta {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .dash-stat-delta.up {
+    color: #45e0a0;
+  }
+
+  .dash-stat-delta.down {
+    color: #ff6b6b;
+  }
+
+  .dash-stat-label {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 10px;
+  }
+
+  .dash-panels-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 14px;
+  }
+
+  .dash-chart-panel,
+  .dash-list-panel {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 12px;
+  }
+
+  .dash-panel-label {
+    margin: 0 0 10px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 10.5px;
+    font-weight: 700;
+  }
+
+  .dash-chart-svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+  }
+
+  .dash-list-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: rgba(245, 247, 250, 0.6);
+    font-size: 10.5px;
+  }
+
+  .dash-list-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .featured-project-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .featured-project-copy h2 {
+    margin-top: 0;
+  }
+
+  .featured-project-description {
+    max-width: 440px;
+    margin: 0 0 24px;
+    color: rgba(245, 247, 250, 0.6);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  .featured-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .featured-stat {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 14px 12px;
+  }
+
+  .featured-stat-icon {
+    display: flex;
+    width: 26px;
+    height: 26px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    border-radius: 7px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .featured-stat-icon :global(svg) {
+    width: 14px;
+    height: 14px;
+  }
+
+  .featured-stat-value {
+    margin: 0 0 2px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .featured-stat-label {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 10.5px;
+    line-height: 1.4;
+  }
+
+  /* ---------- All Projects ---------- */
+
+  .all-projects {
+    background: #f6f8fb;
+    padding: 90px 0;
+    color: #0b1220;
+  }
+
+  .all-projects .section-label {
+    color: #1d63ff;
+  }
+
+  .all-projects-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  a.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+  }
+
+  .project-thumb {
+    position: relative;
+    height: 130px;
+    padding: 14px;
+  }
+
+  .project-thumb-image-shell {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .project-thumb-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .project-thumb-light {
+    background: #eef2f8;
+  }
+
+  .project-thumb-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background: rgba(29, 99, 255, 0.3);
+  }
+
+  .project-thumb-body {
+    margin-top: 16px;
+  }
+
+  .project-thumb-line {
+    height: 7px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background: rgba(11, 18, 32, 0.1);
+  }
+
+  .project-thumb-line.short {
+    width: 55%;
+  }
+
+  .project-title {
+    margin: 18px 18px 0;
+    color: #0b1220;
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  .project-description {
+    flex-grow: 1;
+    margin: 10px 18px 0;
+    color: rgba(11, 18, 32, 0.6);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 18px 0;
+  }
+
+  .project-tag {
+    border-radius: 5px;
+    background: #eef2f8;
+    padding: 5px 10px;
+    color: rgba(11, 18, 32, 0.65);
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  .project-view-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 16px 18px 20px;
+    color: #1d63ff;
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+
+  .project-view-link-soon {
+    color: rgba(11, 18, 32, 0.35);
+  }
+
+  /* ---------- Stats ---------- */
+
+  .projects-stats {
+    background: #0a1830;
+    padding: 60px 0;
+  }
+
+  .projects-stats-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 0 auto;
+  }
+
+  .projects-stat-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 22px 20px;
+  }
+
+  .projects-stat-icon {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border-radius: 9px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .projects-stat-icon :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .projects-stat-value {
+    margin: 0 0 4px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .projects-stat-label {
+    margin: 0 0 6px;
+    color: rgba(245, 247, 250, 0.6);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .projects-stat-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.45);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Process ---------- */
+
+  .process {
+    background: #061426;
+    padding: 90px 0;
+    text-align: center;
+  }
+
+  .process-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .process .section-label,
+  .process h2 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .process-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 36px 0 36px;
+  }
+
+  .process-step {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 24px 18px;
+    text-align: center;
+  }
+
+  .process-step:not(:last-child)::after {
+    position: absolute;
+    top: 24px;
+    right: -22px;
+    width: 26px;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(69, 199, 255, 0.5) 50%,
+      transparent 50%
+    );
+    background-size: 8px 1px;
+    content: "";
+  }
+
+  .process-step-number {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: #1d63ff;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .process-step-title {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .process-step-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+
+  /* ---------- CTA ---------- */
+
+  .projects-cta {
+    position: relative;
+    background: linear-gradient(180deg, #0a1c38, #061426);
+    padding: 70px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .projects-cta::before {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    width: 70%;
+    height: 220px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse,
+      rgba(29, 99, 255, 0.3),
+      transparent 70%
+    );
+    content: "";
+    filter: blur(10px);
+    pointer-events: none;
+  }
+
+  .projects-cta-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: min(680px, calc(100% - 48px));
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .projects-cta-icon {
+    display: flex;
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .projects-cta-icon :global(svg) {
+    width: 22px;
+    height: 22px;
+  }
+
+  .projects-cta-inner h2 {
+    max-width: none;
+    margin: 0 0 12px;
+  }
+
+  .projects-cta-description {
+    max-width: 480px;
+    margin: 0 0 26px;
+    color: rgba(245, 247, 250, 0.6);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    background: #030d1b;
+    padding-top: 70px;
+  }
+
+  .footer-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 30px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .footer-tagline {
+    max-width: 220px;
+    margin: 16px 0 18px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13px;
+  }
+
+  .footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #45c7ff;
+  }
+
+  .footer-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .footer-heading {
+    margin: 0 0 4px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-column a {
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-column a:hover {
+    color: #45c7ff;
+  }
+
+  .footer-link-active {
+    color: #45c7ff !important;
+  }
+
+  .footer-link-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-link-icon:hover {
+    color: #45c7ff;
+  }
+
+  .footer-note {
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-lang-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .footer-lang-links a {
+    color: rgba(245, 247, 250, 0.62);
+  }
+
+  .footer-lang-links .active-language {
+    color: #45c7ff;
+  }
+
+  .footer-bottom {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 24px 0;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 12.5px;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 18px;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(245, 247, 250, 0.4);
+    text-decoration: none;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #45c7ff;
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 1050px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-stats-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 950px) {
+    .projects-hero-inner {
+      grid-template-columns: 1fr;
+      padding-bottom: 50px;
+    }
+
+    .hero-visual {
+      min-height: 260px;
+    }
+
+    .hero-floating-top,
+    .hero-floating-bottom {
+      position: static;
+      margin-top: 16px;
+    }
+
+    .featured-project-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .dash-mock {
+      grid-template-columns: 1fr;
+    }
+
+    .dash-sidebar {
+      display: none;
+    }
+
+    .process-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-step:nth-child(2)::after {
+      display: none;
+    }
+
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 40px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    nav {
+      width: min(100% - 30px, 1180px);
+    }
+
+    .navigation > a:not(.active-page) {
+      display: none;
+    }
+
+    .projects-hero-inner,
+    .filter-bar-inner,
+    .featured-project-inner,
+    .all-projects-inner,
+    .projects-stats-inner,
+    .process-inner {
+      width: min(100% - 30px, 1180px);
+    }
+
+    .buttons {
+      flex-direction: column;
+    }
+
+    .buttons a {
+      width: 100%;
+    }
+
+    .projects-grid,
+    .projects-stats-inner,
+    .process-row,
+    .dash-stats-row,
+    .featured-stats-row {
+      grid-template-columns: 1fr;
+    }
+
+    .process-step::after {
+      display: none;
+    }
+
+    .dash-panels-row {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+      grid-template-columns: 1fr;
+      row-gap: 34px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

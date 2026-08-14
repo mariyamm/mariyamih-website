@@ -1,0 +1,1559 @@
+---
+const pageTitle = "Expertise | Mariya Mihaylova";
+
+const icons = {
+  brain:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg>',
+  transform:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.3-6M20 12a8 8 0 0 1-13.3 6"/><path d="M17 3v4h-4M7 21v-4h4"/></svg>',
+  cube: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 3v18M4 7.5l8 4.5 8-4.5"/></svg>',
+  chart:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+  workflow:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h6a4 4 0 0 1 4 4M7 18h6a4 4 0 0 0 4-4"/></svg>',
+  building:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16M5 21V10M19 21V10M3 10l9-6 9 6M9 21v-7M15 21v-7"/></svg>',
+  cart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>',
+  robot:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V4M9 4h6"/><circle cx="9" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M9 16.5h6"/></svg>',
+  search:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>',
+  list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg>',
+  trendUp:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg>',
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11.5A7 7 0 0 0 5 9.5C5 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>',
+  globe:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5l6-2 6 2 6-2v13l-6 2-6-2-6 2v-13z"/><path d="M9 4.5v13M15 6.5v13"/></svg>',
+  code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>',
+  peopleDuo:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="2.6"/><circle cx="16" cy="9" r="2.2"/><path d="M3.5 19c.8-3 3-4.6 5-4.6s4.2 1.6 5 4.6"/><path d="M14 14.6c2 0 4 1.4 4.8 4"/></svg>',
+  lightning:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+  eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.8-7 10-7 10 7 10 7-3.8 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>',
+  gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"/></svg>',
+  shield:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.8-7 9-3.5-1.2-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  person:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3.4"/><path d="M4.5 20c1-4.2 3.8-6.4 7.5-6.4s6.5 2.2 7.5 6.4"/></svg>',
+  peopleGroup:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="2.2"/><circle cx="5.5" cy="9.5" r="2"/><circle cx="18.5" cy="9.5" r="2"/><path d="M8 20c.8-3 2.2-4.6 4-4.6s3.2 1.6 4 4.6"/><path d="M2.5 18c.6-2 1.7-3.2 3-3.4M21.5 18c-.6-2-1.7-3.2-3-3.4"/></svg>',
+  sparkle:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>',
+  cloud:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 7.1 9.1 4 4 0 0 0 7 18z"/></svg>',
+  dollar:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 7c0-2-2-3-5-3s-5 1.3-5 3.2c0 4 10 2 10 6.3 0 2-2 3.5-5 3.5s-5-1.3-5-3.3"/></svg>',
+  box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg>',
+  book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13z"/></svg>',
+  briefcase:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+  chevron:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
+  chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H10l-5 4v-4H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="6.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="10.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="14.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/></svg>',
+  spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M7 12h10"/></svg>',
+  chain: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="8" height="8" rx="3"/><rect x="13" y="8" width="8" height="8" rx="3"/></svg>',
+  pySnake:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><circle cx="15" cy="16" r="4"/></svg>',
+  database:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5V18c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8V5.5"/><path d="M4 12c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8"/></svg>',
+  bag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+  api: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16a5 5 0 1 1 .9-9.9A6 6 0 0 1 20 9.5 4.5 4.5 0 0 1 19 18H8z"/></svg>',
+  notionN:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8v8M8 8l8 8M16 8v8"/></svg>',
+  diamond:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 9-9 9-9-9 9-9z"/></svg>',
+  zigzag:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6 6-4 4 6 6M9 4l6 6-4 4 6 6"/></svg>',
+};
+
+const capabilityFilters = [
+  { icon: icons.brain, label: "AI Strategy" },
+  { icon: icons.gear, label: "Automation" },
+  { icon: icons.cube, label: "Product Delivery" },
+  { icon: icons.transform, label: "Digital Transformation" },
+  { icon: icons.chart, label: "Data & Insights" },
+  { icon: icons.robot, label: "AI Agents" },
+];
+
+const coreExpertise = [
+  {
+    icon: icons.brain,
+    title: "AI Strategy & Implementation",
+    description:
+      "Define AI opportunities, build business cases, and implement solutions that drive measurable ROI.",
+  },
+  {
+    icon: icons.workflow,
+    title: "Workflow Automation",
+    description:
+      "Design and automate workflows to eliminate manual work and improve accuracy and speed.",
+  },
+  {
+    icon: icons.cube,
+    title: "Product & Project Delivery",
+    description:
+      "Lead product discovery, planning and execution to deliver digital products on time and on budget.",
+  },
+  {
+    icon: icons.building,
+    title: "Enterprise Transformation",
+    description:
+      "Modernize operations, systems and ways of working to unlock agility and sustainable growth.",
+  },
+  {
+    icon: icons.cart,
+    title: "E-commerce & Digital Platforms",
+    description:
+      "Build and optimize digital experiences that convert, scale and elevate customer value.",
+  },
+  {
+    icon: icons.robot,
+    title: "AI Agents & Internal Tools",
+    description:
+      "Build custom AI agents and internal tools that empower teams and accelerate decision-making.",
+  },
+];
+
+const practiceSteps = [
+  {
+    number: "1",
+    icon: icons.search,
+    title: "Discover",
+    description:
+      "Understand your business, challenges, data and goals. Identify high-impact opportunities.",
+  },
+  {
+    number: "2",
+    icon: icons.map,
+    title: "Roadmap",
+    description:
+      "Prioritize initiatives and build a clear, phased roadmap aligned to business outcomes.",
+  },
+  {
+    number: "3",
+    icon: icons.workflow,
+    title: "Process Redesign",
+    description:
+      "Reimagine workflows and operating models to enable automation and scale.",
+  },
+  {
+    number: "4",
+    icon: icons.code,
+    title: "Implement",
+    description:
+      "Build and integrate solutions with a focus on quality, security and user adoption.",
+  },
+  {
+    number: "5",
+    icon: icons.peopleDuo,
+    title: "Align & Enable",
+    description:
+      "Engage stakeholders, train teams and ensure change is adopted successfully.",
+  },
+  {
+    number: "6",
+    icon: icons.trendUp,
+    title: "Optimize",
+    description:
+      "Measure results, iterate and continuously improve for long-term impact.",
+  },
+];
+
+const outcomes = [
+  {
+    icon: icons.lightning,
+    title: "Faster Delivery",
+    description: "Ship initiatives and features {{up to 40% faster}}.",
+  },
+  {
+    icon: icons.eye,
+    title: "Better Visibility",
+    description: "{{Real-time insights}} across data and operations.",
+  },
+  {
+    icon: icons.gear,
+    title: "Streamlined Operations",
+    description:
+      "Reduce manual work and operational costs {{by up to 30%}}.",
+  },
+  {
+    icon: icons.trendUp,
+    title: "Stronger Decisions",
+    description: "{{Data-informed decisions}} that drive growth and efficiency.",
+  },
+  {
+    icon: icons.shield,
+    title: "Scalable Foundations",
+    description: "Build systems and processes that {{scale}} with your business.",
+  },
+];
+
+const engagementModels = [
+  {
+    icon: icons.person,
+    title: "Strategic Advisory",
+    description:
+      "High-level guidance to define strategy, priorities and roadmaps.",
+    items: [
+      "AI & automation strategy",
+      "Opportunity assessment",
+      "Investment prioritization",
+    ],
+  },
+  {
+    icon: icons.peopleGroup,
+    title: "Delivery Leadership",
+    description:
+      "Hands-on leadership to deliver products and transformation programs.",
+    items: [
+      "Program & project management",
+      "Cross-functional leadership",
+      "Delivery excellence",
+    ],
+  },
+  {
+    icon: icons.sparkle,
+    title: "Fractional AI / Transformation Support",
+    description:
+      "Flexible, on-demand expertise to accelerate execution and capability.",
+    items: [
+      "Fractional leadership",
+      "Team enablement",
+      "AI solution implementation",
+    ],
+  },
+];
+
+const industries = [
+  { icon: icons.cart, label: "Retail & E-commerce" },
+  { icon: icons.cloud, label: "SaaS" },
+  { icon: icons.dollar, label: "Finance & Fintech" },
+  { icon: icons.box, label: "Logistics & Operations" },
+  { icon: icons.book, label: "Education & EdTech" },
+  { icon: icons.briefcase, label: "Professional Services" },
+];
+
+const tools = [
+  { icon: icons.spark, label: "OpenAI API" },
+  { icon: icons.chain, label: "LangChain" },
+  { icon: icons.pySnake, label: "Python" },
+  { icon: icons.database, label: "SQL" },
+  { icon: icons.bag, label: "Shopify" },
+  { icon: icons.api, label: "REST APIs" },
+  { icon: icons.notionN, label: "Notion" },
+  { icon: icons.diamond, label: "Jira" },
+  { icon: icons.zigzag, label: "Make" },
+];
+
+function renderHighlighted(text: string) {
+  return text.replace(/\{\{(.+?)\}\}/g, "<span>$1</span>");
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Expertise that turns AI ambition into business execution - AI strategy, automation, digital products and delivery leadership."
+    />
+
+    <title>{pageTitle}</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+          MM
+        </a>
+
+        <div class="navigation">
+          <a href="/">Home</a>
+          <a href="/expertise" class="active-page">Expertise</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+
+          <div class="language-switcher" aria-label="Language selector">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="expertise-hero">
+        <div class="expertise-hero-inner">
+          <div class="expertise-hero-copy">
+            <p class="label">End-to-end Capabilities</p>
+
+            <h1>
+              Expertise that turns AI ambition into{" "}
+              <span>business execution.</span>
+            </h1>
+
+            <p class="description">
+              AI strategy, intelligent automation, digital products,
+              delivery leadership and transformation-designed to
+              create measurable impact.
+            </p>
+
+            <div class="buttons">
+              <a href="#core-expertise" class="primary-button">
+                Explore services
+              </a>
+
+              <a href="/contact" class="secondary-button">
+                Book a consultation
+              </a>
+            </div>
+          </div>
+
+          <div class="expertise-hero-visual">
+            <img
+              src="/images/expertise_hero.png"
+              alt="AI Support Copilot dashboard with automation, workflow and business impact metrics"
+              class="expertise-hero-image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div class="filters">
+        <div class="filters-inner">
+          {
+            capabilityFilters.map((filter) => (
+              <span class="filter-tab">
+                <span class="filter-tab-icon" set:html={filter.icon} />
+                {filter.label}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <section id="core-expertise" class="core">
+        <div class="core-inner">
+          <p class="section-label">Core Expertise</p>
+          <h2>End-to-end capabilities for real-world impact</h2>
+
+          <div class="core-grid">
+            {
+              coreExpertise.map((card) => (
+                <div class="core-card">
+                  <div class="core-card-head">
+                    <span class="core-card-icon" set:html={card.icon} />
+                  </div>
+                  <p class="core-card-title">{card.title}</p>
+                  <p class="core-card-description">{card.description}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="practice">
+        <div class="practice-inner">
+          <p class="section-label">How I Work</p>
+          <h2>What this looks like in practice</h2>
+
+          <div class="practice-row">
+            {
+              practiceSteps.map((step) => (
+                <div class="practice-step">
+                  <div class="practice-step-number">{step.number}</div>
+                  <span class="practice-step-icon" set:html={step.icon} />
+                  <p class="practice-step-title">{step.title}</p>
+                  <p class="practice-step-description">
+                    {step.description}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="outcomes">
+        <div class="outcomes-inner">
+          <p class="section-label">Business Outcomes</p>
+          <h2>Outcomes that matter</h2>
+
+          <div class="outcomes-grid">
+            {
+              outcomes.map((outcome) => (
+                <div class="outcome-card">
+                  <span
+                    class="outcome-card-icon"
+                    set:html={outcome.icon}
+                  />
+                  <p class="outcome-card-title">{outcome.title}</p>
+                  <p
+                    class="outcome-card-description"
+                    set:html={renderHighlighted(outcome.description)}
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="engagement">
+        <div class="engagement-inner">
+          <p class="section-label">Engagement Models</p>
+          <h2>Ways to work with me</h2>
+
+          <div class="engagement-grid">
+            {
+              engagementModels.map((model) => (
+                <div class="engagement-card">
+                  <span
+                    class="engagement-card-icon"
+                    set:html={model.icon}
+                  />
+                  <p class="engagement-card-title">{model.title}</p>
+                  <p class="engagement-card-description">
+                    {model.description}
+                  </p>
+
+                  <ul class="engagement-card-list">
+                    {model.items.map((item) => <li>{item}</li>)}
+                  </ul>
+
+                  <a href="/contact" class="engagement-card-link">
+                    Let's talk
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="industries">
+        <div class="industries-inner">
+          <p class="section-label">Industries & Contexts</p>
+
+          <div class="industries-row">
+            {
+              industries.map((industry) => (
+                <div class="industry-item">
+                  <span
+                    class="industry-icon"
+                    set:html={industry.icon}
+                  />
+                  <p class="industry-label">{industry.label}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="tools">
+        <div class="tools-inner">
+          <p class="section-label">Selected Tools & Technologies</p>
+
+          <div class="tools-row">
+            {
+              tools.map((tool) => (
+                <div class="tool-pill">
+                  <span class="tool-icon" set:html={tool.icon} />
+                  {tool.label}
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="expertise-cta">
+        <div class="expertise-cta-inner">
+          <span class="expertise-cta-icon" set:html={icons.chat} />
+          <h2>Need execution, not just ideas?</h2>
+          <p class="expertise-cta-description">
+            Let's discuss your AI, automation or digital transformation
+            challenge and build a plan that delivers results.
+          </p>
+
+          <a href="/contact" class="primary-button">
+            Start a conversation
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+            MM
+          </a>
+          <p class="footer-tagline">
+            AI Transformation & Digital Delivery Consultant
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.globe} />
+            Available worldwide
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Quick Links</p>
+          <a href="/">Home</a>
+          <a href="/expertise" class="footer-link-active">Expertise</a>
+          <a href="/projects">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Connect</p>
+          <a href="mailto:mariya@mariyamihaylova.com" class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.mail} />
+            mariya@mariyamihaylova.com
+          </a>
+          <p class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Languages</p>
+          <p class="footer-note">
+            This website is available in English / Français.
+          </p>
+          <div class="footer-lang-links">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Mariya Mihaylova. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #061426;
+    color: #f5f7fa;
+    font-family:
+      Inter,
+      Arial,
+      Helvetica,
+      sans-serif;
+  }
+
+  :global(img) {
+    display: block;
+    max-width: 100%;
+  }
+
+  header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    min-height: 88px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  .logo {
+    color: #45c7ff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    text-decoration: none;
+    text-shadow: 0 0 20px rgba(69, 199, 255, 0.32);
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .navigation > a {
+    position: relative;
+    color: rgba(245, 247, 250, 0.78);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .navigation > a::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    background: #1d63ff;
+    content: "";
+    opacity: 0;
+    transform: scaleX(0);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .navigation > a:hover {
+    color: #ffffff;
+  }
+
+  .navigation > a:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .navigation > a.active-page {
+    color: #45c7ff;
+  }
+
+  .navigation > a.active-page::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .language-switcher a {
+    color: rgba(245, 247, 250, 0.62);
+    text-decoration: none;
+  }
+
+  .language-switcher .active-language {
+    color: #45c7ff;
+  }
+
+  .label {
+    width: fit-content;
+    margin: 0 0 22px;
+    border: 1px solid rgba(69, 199, 255, 0.58);
+    border-radius: 4px;
+    color: #45c7ff;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .section-label {
+    margin: 0 0 16px;
+    color: #1d63ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  main section h2 {
+    max-width: 640px;
+    margin: 0 0 20px;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .primary-button,
+  .secondary-button {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 0 22px;
+    font-weight: 700;
+    font-size: 14.5px;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .primary-button:hover,
+  .secondary-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .primary-button {
+    background: #1d63ff;
+    color: white;
+    box-shadow: 0 14px 32px rgba(29, 99, 255, 0.28);
+  }
+
+  .primary-button:hover {
+    background: #3476ff;
+  }
+
+  .secondary-button {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+
+  .secondary-button:hover {
+    border-color: rgba(69, 199, 255, 0.7);
+  }
+
+  /* ---------- Hero ---------- */
+
+  .expertise-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .expertise-hero-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+    padding: 44px 0 70px;
+  }
+
+  h1 {
+    max-width: 520px;
+    margin: 0;
+    font-size: clamp(32px, 3.8vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  h1 span {
+    color: #45c7ff;
+  }
+
+  .description {
+    max-width: 460px;
+    margin: 18px 0 0;
+    color: rgba(245, 247, 250, 0.65);
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .expertise-hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .expertise-hero-image {
+    width: 122%;
+    max-width: 122%;
+    height: auto;
+    margin: 0 -11%;
+    border-radius: 16px;
+    object-fit: contain;
+    -webkit-mask-image: radial-gradient(ellipse 72% 72% at center, #000 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 72% 72% at center, #000 55%, transparent 100%);
+  }
+
+  /* ---------- Filters ---------- */
+
+  .filters {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: #061426;
+  }
+
+  .filters-inner {
+    display: flex;
+    flex-wrap: wrap;
+    width: min(1180px, calc(100% - 48px));
+    gap: 10px;
+    margin: 0 auto;
+    padding: 18px 0;
+  }
+
+  .filter-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 7px;
+    background: transparent;
+    color: rgba(245, 247, 250, 0.65);
+    padding: 9px 14px;
+    font-family: inherit;
+    font-size: 13px;
+  }
+
+  .filter-tab-icon {
+    display: flex;
+  }
+
+  .filter-tab-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* ---------- Core Expertise ---------- */
+
+  .core {
+    background: #061426;
+    padding: 80px 0;
+  }
+
+  .core-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .core-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 32px;
+  }
+
+  .core-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 24px 22px;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .core-card:hover {
+    border-color: rgba(69, 199, 255, 0.35);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .core-card-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .core-card-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .core-card-icon :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+
+  .core-card-title {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .core-card-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.58);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* ---------- Practice / How I Work ---------- */
+
+  .practice {
+    background: #0a1830;
+    padding: 80px 0;
+  }
+
+  .practice-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .practice-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .practice-step {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 18px 14px;
+    text-align: center;
+  }
+
+  .practice-step:not(:last-child)::after {
+    position: absolute;
+    top: 20px;
+    right: -18px;
+    width: 22px;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(69, 199, 255, 0.5) 50%,
+      transparent 50%
+    );
+    background-size: 8px 1px;
+    content: "";
+  }
+
+  .practice-step-number {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: #1d63ff;
+    color: #ffffff;
+    font-size: 12.5px;
+    font-weight: 700;
+  }
+
+  .practice-step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    color: #45c7ff;
+  }
+
+  .practice-step-icon :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .practice-step-title {
+    margin: 0 0 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+
+  .practice-step-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Outcomes ---------- */
+
+  .outcomes {
+    background: #061426;
+    padding: 80px 0;
+  }
+
+  .outcomes-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .outcome-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 16px;
+  }
+
+  .outcome-card-icon {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    border-radius: 9px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .outcome-card-icon :global(svg) {
+    width: 17px;
+    height: 17px;
+  }
+
+  .outcome-card-title {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .outcome-card-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+
+  .outcome-card-description :global(span) {
+    color: #45c7ff;
+    font-weight: 600;
+  }
+
+  /* ---------- Engagement models ---------- */
+
+  .engagement {
+    background: #0a1830;
+    padding: 80px 0;
+  }
+
+  .engagement-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .engagement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 32px;
+  }
+
+  .engagement-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 26px 24px;
+  }
+
+  .engagement-card-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .engagement-card-icon :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+
+  .engagement-card-title {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .engagement-card-description {
+    margin: 0 0 16px;
+    color: rgba(245, 247, 250, 0.58);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .engagement-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .engagement-card-list li {
+    position: relative;
+    padding-left: 16px;
+    color: rgba(245, 247, 250, 0.65);
+    font-size: 12.5px;
+  }
+
+  .engagement-card-list li::before {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #45c7ff;
+    content: "";
+  }
+
+  .engagement-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    color: #45c7ff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .engagement-card-link:hover {
+    text-decoration: underline;
+  }
+
+  /* ---------- Industries ---------- */
+
+  .industries {
+    background: #061426;
+    padding: 60px 0;
+  }
+
+  .industries-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .industries-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+
+  .industry-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 14px 12px;
+  }
+
+  .industry-icon {
+    display: flex;
+    flex: 0 0 auto;
+    color: #45c7ff;
+  }
+
+  .industry-icon :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .industry-label {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.65);
+    font-size: 12.5px;
+    line-height: 1.3;
+  }
+
+  /* ---------- Tools ---------- */
+
+  .tools {
+    background: #061426;
+    padding-bottom: 70px;
+  }
+
+  .tools-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tool-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 11px 16px;
+    color: rgba(245, 247, 250, 0.75);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .tool-icon {
+    display: flex;
+    color: #45c7ff;
+  }
+
+  .tool-icon :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ---------- CTA ---------- */
+
+  .expertise-cta {
+    position: relative;
+    background: linear-gradient(180deg, #0a1c38, #061426);
+    padding: 70px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .expertise-cta::before {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    width: 70%;
+    height: 220px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse,
+      rgba(29, 99, 255, 0.3),
+      transparent 70%
+    );
+    content: "";
+    filter: blur(10px);
+    pointer-events: none;
+  }
+
+  .expertise-cta-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: min(680px, calc(100% - 48px));
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .expertise-cta-icon {
+    display: flex;
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .expertise-cta-icon :global(svg) {
+    width: 22px;
+    height: 22px;
+  }
+
+  .expertise-cta-inner h2 {
+    max-width: none;
+    margin: 0 0 12px;
+  }
+
+  .expertise-cta-description {
+    max-width: 480px;
+    margin: 0 0 26px;
+    color: rgba(245, 247, 250, 0.6);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    background: #030d1b;
+    padding-top: 70px;
+  }
+
+  .footer-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 30px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .footer-tagline {
+    max-width: 220px;
+    margin: 16px 0 18px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13px;
+  }
+
+  .footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #45c7ff;
+  }
+
+  .footer-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .footer-heading {
+    margin: 0 0 4px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-column a {
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-column a:hover {
+    color: #45c7ff;
+  }
+
+  .footer-link-active {
+    color: #45c7ff !important;
+  }
+
+  .footer-link-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-link-icon:hover {
+    color: #45c7ff;
+  }
+
+  .footer-note {
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-lang-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .footer-lang-links a {
+    color: rgba(245, 247, 250, 0.62);
+  }
+
+  .footer-lang-links .active-language {
+    color: #45c7ff;
+  }
+
+  .footer-bottom {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 auto;
+    padding: 24px 0;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 12.5px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(245, 247, 250, 0.4);
+    text-decoration: none;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #45c7ff;
+  }
+
+  @media (max-width: 1050px) {
+    .practice-row {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 26px;
+    }
+
+    .practice-step:nth-child(3)::after {
+      display: none;
+    }
+
+    .outcomes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .industries-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 950px) {
+    .expertise-hero-inner {
+      grid-template-columns: 1fr;
+      padding-bottom: 50px;
+    }
+
+    .core-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .engagement-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 40px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    nav {
+      width: min(100% - 30px, 1180px);
+    }
+
+    .navigation > a:not(.active-page) {
+      display: none;
+    }
+
+    .expertise-hero-inner,
+    .filters-inner,
+    .core-inner,
+    .practice-inner,
+    .outcomes-inner,
+    .engagement-inner,
+    .industries-inner,
+    .tools-inner {
+      width: min(100% - 30px, 1180px);
+    }
+
+    .buttons {
+      flex-direction: column;
+    }
+
+    .buttons a {
+      width: 100%;
+    }
+
+    .practice-row {
+      grid-template-columns: 1fr;
+    }
+
+    .practice-step::after {
+      display: none;
+    }
+
+    .core-grid,
+    .outcomes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .industries-row {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+      grid-template-columns: 1fr;
+      row-gap: 34px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

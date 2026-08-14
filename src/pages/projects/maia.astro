@@ -1,0 +1,874 @@
+---
+import ProjectCaseStudy from "../../components/ProjectCaseStudy.astro";
+
+const pageTitle = "MAIA — Internal Knowledge Assistant | Mariya Mihaylova";
+
+const icons = {
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11.5A7 7 0 0 0 5 9.5C5 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>',
+  globe:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  person:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3.4"/><path d="M4.5 20c1-4.2 3.8-6.4 7.5-6.4s6.5 2.2 7.5 6.4"/></svg>',
+  clock:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+  stack:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>',
+  chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H10l-5 4v-4H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="6.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="10.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="14.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/></svg>',
+  sparkle:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>',
+  bulb: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M8.5 14A5.5 5.5 0 1 1 15.5 14c-.7 1-1.5 1.6-1.5 3h-4c0-1.4-.8-2-1.5-3z"/></svg>',
+  search:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>',
+  monitor:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+  checklist:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+  send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>',
+  list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg>',
+  workflow:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h6a4 4 0 0 1 4 4M7 18h6a4 4 0 0 0 4-4"/></svg>',
+  target:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>',
+  shield:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.8-7 9-3.5-1.2-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  peopleDuo:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="2.6"/><circle cx="16" cy="9" r="2.2"/><path d="M3.5 19c.8-3 3-4.6 5-4.6s4.2 1.6 5 4.6"/><path d="M14 14.6c2 0 4 1.4 4.8 4"/></svg>',
+  spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M7 12h10"/></svg>',
+  chain: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="8" height="8" rx="3"/><rect x="13" y="8" width="8" height="8" rx="3"/></svg>',
+  pySnake:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><circle cx="15" cy="16" r="4"/></svg>',
+  database:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5V18c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8V5.5"/><path d="M4 12c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8"/></svg>',
+  api: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16a5 5 0 1 1 .9-9.9A6 6 0 0 1 20 9.5 4.5 4.5 0 0 1 19 18H8z"/></svg>',
+  layers:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13.5l9 5 9-5"/><path d="M3 8.5l9 5 9-5"/></svg>',
+  terminal:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>',
+  lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>',
+  file: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h8l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1z"/><path d="M14 2.5V7h4"/></svg>',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="A secure AI assistant that helps teams search, analyze and synthesize internal documentation faster."
+    />
+
+    <title>{pageTitle}</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+          MM
+        </a>
+
+        <div class="navigation">
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects" class="active-page">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+
+          <div class="language-switcher" aria-label="Language selector">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <ProjectCaseStudy
+      title="MAIA"
+      tagline="Internal Knowledge Assistant"
+      description="A secure AI assistant that helps teams search, analyze and synthesize internal documentation faster."
+      heroImage="/images/MAIA_header_image.png"
+      heroImageAlt="MAIA header image"
+      backLink="/projects"
+      meta={[
+        { icon: icons.person, label: "Role", value: "AI Implementation / Delivery Lead" },
+        { icon: icons.stack, label: "Industry", value: "Enterprise / Internal Tools" },
+        { icon: icons.clock, label: "Timeline", value: "10-14 weeks" },
+        {
+          icon: icons.layers,
+          label: "Stack",
+          value: "OpenAI API, LangChain, Python, Vector Search, Secure Docs",
+        },
+      ]}
+      challenge={{
+        icon: icons.chat,
+        label: "The Challenge",
+        items: [
+          "Internal knowledge was scattered across hundreds of policies, SOPs, tickets and guides",
+          "Teams spent too much time searching, with inconsistent results depending on keywords",
+          "Critical information was buried in long documents with no quick summaries",
+          "Sensitive data required strict access control and secure handling",
+        ],
+      }}
+      solution={{
+        icon: icons.sparkle,
+        label: "The Solution",
+        items: [
+          "Built MAIA, a secure AI assistant that understands internal content and provides accurate, cited answers",
+          "Semantic search powered by vector embeddings surfaces the most relevant information",
+          "Answers are grounded in sources with references and summaries for quick validation",
+          "Human-in-the-loop workflows ensure trust, compliance and continuous improvement",
+        ],
+      }}
+      steps={[
+        {
+          icon: icons.file,
+          title: "Ingest",
+          description:
+            "Connect to internal sources (SharePoint, Confluence, Drive, databases) and extract clean, structured content.",
+        },
+        {
+          icon: icons.layers,
+          title: "Index & Retrieve",
+          description:
+            "Chunk, embed, and index content in a secure vector store. Retrieve top relevant chunks for the user query.",
+        },
+        {
+          icon: icons.sparkle,
+          title: "Generate Answers",
+          description:
+            "LLM generates grounded answers with citations, summaries and related documents.",
+        },
+        {
+          icon: icons.shield,
+          title: "Validate & Use",
+          description:
+            "Users review sources, explore further and give feedback to continuously improve MAIA.",
+        },
+      ]}
+      features={[
+        {
+          icon: icons.search,
+          title: "Semantic Search",
+          description: "Find information with meaning, not just keywords.",
+        },
+        {
+          icon: icons.database,
+          title: "Cited Answers",
+          description: "Every answer includes source citations for transparency.",
+        },
+        {
+          icon: icons.list,
+          title: "Smart Summaries",
+          description: "AI-generated summaries of long documents.",
+        },
+        {
+          icon: icons.monitor,
+          title: "Document Explorer",
+          description: "Browse related topics and connected documents.",
+        },
+        {
+          icon: icons.chat,
+          title: "Question Answering",
+          description: "Ask natural language questions and get precise answers.",
+        },
+        {
+          icon: icons.stack,
+          title: "Knowledge Analytics",
+          description: "Track usage, popular topics and content gaps.",
+        },
+      ]}
+      contributions={[
+        {
+          icon: icons.target,
+          title: "Scope & Roadmap",
+          description:
+            "Defined project scope, success metrics and MVP roadmap.",
+        },
+        {
+          icon: icons.peopleDuo,
+          title: "Research & Workflows",
+          description:
+            "Conducted user research and mapped key knowledge-seeking workflows.",
+        },
+        {
+          icon: icons.layers,
+          title: "RAG Architecture",
+          description:
+            "Designed the RAG architecture and integration strategy across sources.",
+        },
+        {
+          icon: icons.shield,
+          title: "Security Coordination",
+          description:
+            "Coordinated with IT, Security and Content Owners on access and compliance.",
+        },
+        {
+          icon: icons.checklist,
+          title: "Implementation & QA",
+          description:
+            "Led implementation, testing and iterative improvement of MAIA.",
+        },
+        {
+          icon: icons.send,
+          title: "Adoption & Rollout",
+          description:
+            "Drove adoption, training and rollout across teams.",
+        },
+      ]}
+      impact={[
+        {
+          kind: "trend",
+          value: "60%",
+          title: "faster knowledge retrieval",
+          description: "Average time to find information dropped significantly.",
+        },
+        {
+          kind: "ring",
+          percent: 45,
+          value: "45%",
+          title: "reduction in search time",
+          description: "Less time spent searching across documents.",
+        },
+        {
+          kind: "rating",
+          stars: 4,
+          title: "35% increase in answer consistency",
+          description: "More reliable and standardized responses across teams.",
+        },
+        {
+          kind: "bars",
+          title: "80%+ user satisfaction",
+          description: "Of users find MAIA helpful for daily work.",
+        },
+      ]}
+      techStack={[
+        { icon: icons.sparkle, label: "OpenAI API" },
+        { icon: icons.chain, label: "LangChain" },
+        { icon: icons.pySnake, label: "Python" },
+        { icon: icons.api, label: "FastAPI" },
+        { icon: icons.database, label: "PostgreSQL" },
+        { icon: icons.layers, label: "pgvector" },
+        { icon: icons.terminal, label: "Linux" },
+        { icon: icons.lock, label: "HashiCorp Vault" },
+      ]}
+      mattered={[
+        {
+          icon: icons.shield,
+          title: "Security & compliance by design",
+          description:
+            "On-prem/local-only options, encryption and role-based access kept sensitive data protected.",
+        },
+        {
+          icon: icons.database,
+          title: "Answers grounded in real sources",
+          description:
+            "Every answer is traceable to a document, reducing hallucination and building trust.",
+        },
+        {
+          icon: icons.peopleDuo,
+          title: "Adoption through simplicity",
+          description:
+            "A clear, familiar chat experience made rollout and daily adoption easy for every team.",
+        },
+      ]}
+      ctaHeading="Let's build something useful."
+      ctaDescription="If you have an AI, automation or digital product challenge, let's turn it into a clear and executable solution."
+    >
+    </ProjectCaseStudy>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+            MM
+          </a>
+          <p class="footer-tagline">
+            AI Transformation & Digital Delivery Consultant
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.globe} />
+            Available worldwide
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Quick Links</p>
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects" class="footer-link-active">Projects</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Connect</p>
+          <a href="mailto:mariya@mariyamihaylova.com" class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.mail} />
+            mariya@mariyamihaylova.com
+          </a>
+          <p class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Languages</p>
+          <p class="footer-note">
+            This website is available in English / Français.
+          </p>
+          <div class="footer-lang-links">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Mariya Mihaylova. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #061426;
+    color: #f5f7fa;
+    font-family:
+      Inter,
+      Arial,
+      Helvetica,
+      sans-serif;
+  }
+
+  :global(img) {
+    display: block;
+    max-width: 100%;
+  }
+
+  header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    min-height: 88px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  .logo {
+    color: #45c7ff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    text-decoration: none;
+    text-shadow: 0 0 20px rgba(69, 199, 255, 0.32);
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .navigation > a {
+    position: relative;
+    color: rgba(245, 247, 250, 0.78);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .navigation > a::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    background: #1d63ff;
+    content: "";
+    opacity: 0;
+    transform: scaleX(0);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .navigation > a:hover {
+    color: #ffffff;
+  }
+
+  .navigation > a:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .navigation > a.active-page {
+    color: #45c7ff;
+  }
+
+  .navigation > a.active-page::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .language-switcher a {
+    color: rgba(245, 247, 250, 0.62);
+    text-decoration: none;
+  }
+
+  .language-switcher .active-language {
+    color: #45c7ff;
+  }
+
+  /* ---------- MAIA hero mockup ---------- */
+
+  .maia-mock {
+    display: grid;
+    grid-template-columns: 0.85fr 1.6fr 1fr;
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 30px 60px rgba(2, 8, 20, 0.45);
+    font-size: 11px;
+  }
+
+  .maia-sidebar,
+  .maia-main,
+  .maia-panel {
+    background: #0b1f3d;
+    padding: 16px 14px;
+  }
+
+  .maia-main {
+    background: #08182f;
+  }
+
+  .maia-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 14px;
+    color: #45c7ff;
+    font-weight: 800;
+    font-size: 13px;
+  }
+
+  .maia-brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #45c7ff;
+    box-shadow: 0 0 8px rgba(69, 199, 255, 0.7);
+  }
+
+  .maia-new-chat {
+    width: 100%;
+    margin: 0 0 14px;
+    border: none;
+    border-radius: 6px;
+    background: #1d63ff;
+    color: white;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 8px 10px;
+    cursor: default;
+  }
+
+  .maia-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 16px;
+  }
+
+  .maia-nav-item {
+    color: rgba(245, 247, 250, 0.55);
+  }
+
+  .maia-nav-active {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .maia-secure-box {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 12px;
+  }
+
+  .maia-secure-title {
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .maia-secure-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 6px;
+    color: rgba(245, 247, 250, 0.65);
+  }
+
+  .maia-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(245, 247, 250, 0.3);
+  }
+
+  .maia-dot-on {
+    background: #3ddc84;
+    box-shadow: 0 0 6px rgba(61, 220, 132, 0.7);
+  }
+
+  .maia-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: rgba(245, 247, 250, 0.45);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .maia-search-icon {
+    display: flex;
+    color: #45c7ff;
+  }
+
+  .maia-search-icon :global(svg) {
+    width: 13px;
+    height: 13px;
+  }
+
+  .maia-heading {
+    margin: 0 0 14px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .maia-bubble {
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .maia-bubble-user {
+    margin-left: auto;
+    max-width: 80%;
+    background: #1d63ff;
+    color: white;
+  }
+
+  .maia-bubble-ai {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(245, 247, 250, 0.85);
+  }
+
+  .maia-bubble-ai p {
+    margin: 0 0 10px;
+  }
+
+  .maia-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .maia-sources-label {
+    width: 100%;
+    margin: 0 0 2px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .maia-source-pill {
+    margin: 0;
+    border: 1px solid rgba(69, 199, 255, 0.35);
+    border-radius: 20px;
+    padding: 4px 9px;
+    color: #45c7ff;
+    font-size: 9.5px;
+  }
+
+  .maia-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .maia-action {
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 5px 9px;
+    color: rgba(245, 247, 250, 0.75);
+    font-size: 9.5px;
+  }
+
+  .maia-input {
+    margin-top: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: rgba(245, 247, 250, 0.35);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .maia-panel-badge {
+    display: inline-block;
+    margin: 0 0 16px;
+    border: 1px solid rgba(61, 220, 132, 0.4);
+    border-radius: 20px;
+    padding: 4px 9px;
+    color: #3ddc84;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .maia-panel-label {
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .maia-stats {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .maia-stat-value {
+    margin: 0;
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .maia-stat-label {
+    margin: 2px 0 0;
+    color: rgba(245, 247, 250, 0.45);
+    font-size: 9px;
+  }
+
+  .maia-result,
+  .maia-event {
+    margin: 0 0 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 7px 9px;
+    color: rgba(245, 247, 250, 0.65);
+    font-size: 9.5px;
+  }
+
+  .maia-security-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 16px;
+    color: rgba(245, 247, 250, 0.65);
+  }
+
+  @media (max-width: 640px) {
+    .maia-mock {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    background: #030d1b;
+    padding-top: 70px;
+  }
+
+  .footer-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 30px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .footer-tagline {
+    max-width: 220px;
+    margin: 16px 0 18px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13px;
+  }
+
+  .footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #45c7ff;
+  }
+
+  .footer-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .footer-heading {
+    margin: 0 0 4px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-column a {
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-column a:hover {
+    color: #45c7ff;
+  }
+
+  .footer-link-active {
+    color: #45c7ff !important;
+  }
+
+  .footer-link-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-link-icon:hover {
+    color: #45c7ff;
+  }
+
+  .footer-note {
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-lang-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .footer-lang-links a {
+    color: rgba(245, 247, 250, 0.62);
+  }
+
+  .footer-lang-links .active-language {
+    color: #45c7ff;
+  }
+
+  .footer-bottom {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 auto;
+    padding: 24px 0;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 12.5px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(245, 247, 250, 0.4);
+    text-decoration: none;
+  }
+</style>

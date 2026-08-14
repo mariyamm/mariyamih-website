@@ -1,0 +1,1535 @@
+---
+const pageTitle = "About | Mariya Mihaylova";
+
+const icons = {
+  globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  peopleDuo:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="2.6"/><circle cx="16" cy="9" r="2.2"/><path d="M3.5 19c.8-3 3-4.6 5-4.6s4.2 1.6 5 4.6"/><path d="M14 14.6c2 0 4 1.4 4.8 4"/></svg>',
+  sparkle:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-11.5A7 7 0 0 0 5 9.5C5 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>',
+  target:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>',
+  chip: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2 2M17.5 4.5l-2 2M4.5 19.5l2-2M17.5 19.5l-2-2"/></svg>',
+  checklist:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+  chatBubbles:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h12a1.5 1.5 0 0 1 1.5 1.5v6A1.5 1.5 0 0 1 15 14H9l-3.5 3V14H3a1.5 1.5 0 0 1-1.5-1.5v-6A1.5 1.5 0 0 1 3 5z"/><path d="M19 9h1.5A1.5 1.5 0 0 1 22 10.5v5a1.5 1.5 0 0 1-1.5 1.5H20v2.5L17 17h-3"/></svg>',
+  decisionTree:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="12" r="2.2"/><path d="M8 6.6L16 11M8 17.4L16 13"/></svg>',
+  trendUp:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg>',
+  teamGroup:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="2.2"/><circle cx="5.5" cy="9.5" r="2"/><circle cx="18.5" cy="9.5" r="2"/><path d="M8 20c.8-3 2.2-4.6 4-4.6s3.2 1.6 4 4.6"/><path d="M2.5 18c.6-2 1.7-3.2 3-3.4M21.5 18c-.6-2-1.7-3.2-3-3.4"/></svg>',
+  lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>',
+  download:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>',
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  cart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>',
+  cloud:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 7.1 9.1 4 4 0 0 0 7 18z"/></svg>',
+  dollar:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 7c0-2-2-3-5-3s-5 1.3-5 3.2c0 4 10 2 10 6.3 0 2-2 3.5-5 3.5s-5-1.3-5-3.3"/></svg>',
+  box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg>',
+  book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13z"/></svg>',
+  briefcase:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+};
+
+const storyStats = [
+  {
+    icon: icons.globe,
+    stat: "7+",
+    title: "Years of experience",
+    description: "Across Europe, the U.S. and international markets.",
+  },
+  {
+    icon: icons.peopleDuo,
+    title: "Cross-functional Delivery",
+    description: "Bridging strategy, product, technology and business teams.",
+  },
+  {
+    icon: icons.sparkle,
+    title: "AI & Automation Focus",
+    description:
+      "Turning AI and automation into practical solutions with measurable impact.",
+  },
+];
+
+const journey = [
+  {
+    period: "January 2026 - Present",
+    title: "AI Consultant & Digital Project Manager - Freelance",
+    description:
+      "Advising and managing AI and digital projects for companies and entrepreneurs, from needs identification through to functional prototype and deployment strategy.",
+  },
+  {
+    period: "January 2025 - January 2026",
+    title: "AI Project Manager - Alten Worldgrid",
+    description:
+      "Co-led internal AI solutions, including MAIA, a secure RAG-based assistant for searching, analyzing and synthesizing sensitive nuclear documentation.",
+  },
+  {
+    period: "September 2022 - December 2024",
+    title: "Technical-Functional Consultant / IT Project Manager - Atos Worldgrid",
+    description:
+      "Led functional scoping, specifications and UAT for complex IT systems (IFS Cloud), as key interface between business teams, developers and external providers.",
+  },
+  {
+    period: "January 2020 - August 2022",
+    title: "E-commerce Project Manager - Americaneagle.com",
+    description:
+      "Delivered international e-commerce projects (Shopify, BigCommerce, CMS, PIM) for retail, industrial and premium companies across multiple markets.",
+  },
+  {
+    period: "January 2018 - December 2019",
+    title: "Product Manager - Melistics LLC",
+    description:
+      "Defined product vision, backlog and specifications for a SaaS platform used by retail and premium brands.",
+  },
+];
+
+const values = [
+  {
+    icon: icons.target,
+    title: "Business-first Thinking",
+    description:
+      "I start with the business outcome and design solutions that deliver measurable impact.",
+  },
+  {
+    icon: icons.chip,
+    title: "Practical AI",
+    description:
+      "I focus on real use cases, automation and solutions that drive efficiency and growth.",
+  },
+  {
+    icon: icons.checklist,
+    title: "Structured Execution",
+    description:
+      "I bring clarity, prioritize effectively and deliver with discipline and accountability.",
+  },
+  {
+    icon: icons.peopleDuo,
+    title: "Cross-functional Collaboration",
+    description:
+      "I work as a bridge between business and technology teams to get things done.",
+  },
+];
+
+const profileCards = [
+  {
+    icon: icons.target,
+    title: "Strengths",
+    description:
+      "Creative, adaptable, proactive, calm, relationship-focused.",
+  },
+  {
+    icon: icons.chatBubbles,
+    title: "Communication Style",
+    description: "Direct, honest, spontaneous, approachable, open-minded.",
+  },
+  {
+    icon: icons.peopleDuo,
+    title: "Leadership Style",
+    description:
+      "Participative, collaborative, inclusive, motivating, results-oriented.",
+  },
+  {
+    icon: icons.decisionTree,
+    title: "Decision-Making",
+    description: "Reasoned, analytical, consultative, practical, adaptable.",
+  },
+  {
+    icon: icons.trendUp,
+    title: "Motivators",
+    description: "Innovation, challenge, autonomy, learning, visible progress.",
+  },
+  {
+    icon: icons.teamGroup,
+    title: "Team Dynamics",
+    description:
+      "Supportive, energising, cooperative, engaging, action-focused.",
+  },
+];
+
+const approachSteps = [
+  {
+    number: "1",
+    title: "Understand",
+    description:
+      "Deep dive into your business, challenges, goals and operational context.",
+  },
+  {
+    number: "2",
+    title: "Design",
+    description:
+      "Define the right strategy, solutions and roadmap with clear priorities.",
+  },
+  {
+    number: "3",
+    title: "Deliver",
+    description:
+      "Execute with the right team, processes and tools to deliver measurable results.",
+  },
+  {
+    number: "4",
+    title: "Scale",
+    description: "Optimize, automate and scale for sustainable long-term impact.",
+  },
+];
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="About Mariya Mihaylova - bridging strategy, technology and execution across AI transformation and digital delivery."
+    />
+
+    <title>{pageTitle}</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+          MM
+        </a>
+
+        <div class="navigation">
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects">Projects</a>
+          <a href="/about" class="active-page">About</a>
+          <a href="/contact">Contact</a>
+
+          <div class="language-switcher" aria-label="Language selector">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about-hero">
+        <div class="about-hero-inner">
+          <div class="about-hero-copy">
+            <p class="label">About Mariya</p>
+
+            <h1>
+              Bridging strategy, technology and{" "}
+              <span>execution.</span>
+            </h1>
+
+            <p class="description">
+              I help organizations turn business challenges into
+              practical AI, automation and digital solutions that
+              create measurable impact and lasting value.
+            </p>
+
+            <div class="buttons">
+              <a href="/contact" class="primary-button">
+                Work with me
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <a href="/projects" class="secondary-button">
+                View my projects
+              </a>
+            </div>
+          </div>
+
+          <div class="about-hero-visual">
+            <div class="network network-one"></div>
+            <div class="network network-two"></div>
+
+            <div class="about-hero-image-frame">
+              <img
+                src="/images/mariya-portfolio-3.png"
+                alt="Mariya Mihaylova"
+                class="about-hero-image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story">
+        <div class="story-inner">
+          <p class="section-label">My Story</p>
+          <h2>A practical approach to innovation.</h2>
+
+          <div class="story-grid">
+            <div class="story-copy">
+              <p class="story-paragraph">
+                I combine engineering thinking, product and project
+                delivery, and business understanding to design and
+                deliver AI and digital solutions that are practical,
+                measurable and executable.
+              </p>
+
+              <p class="story-paragraph">
+                With a background in computer engineering and
+                economics, and experience across Europe and the United
+                States, I work in international environments to help
+                organizations modernize, automate and build digital
+                products that drive performance.
+              </p>
+
+              <p class="story-location">
+                <span class="story-location-icon" set:html={icons.pin} />
+                Based in Paris area, France
+                <br />
+                Available worldwide
+              </p>
+            </div>
+
+            <div class="story-stats">
+              {
+                storyStats.map((item) => (
+                  <div class="story-stat-card">
+                    <span class="story-stat-icon" set:html={item.icon} />
+                    {item.stat && (
+                      <p class="story-stat-value">{item.stat}</p>
+                    )}
+                    <p class="story-stat-title">{item.title}</p>
+                    <p class="story-stat-description">
+                      {item.description}
+                    </p>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey">
+        <div class="journey-inner">
+          <p class="section-label">My Journey</p>
+          <h2>From product to AI transformation leadership.</h2>
+
+          <div class="journey-grid">
+            <div class="journey-timeline">
+              {
+                journey.map((item) => (
+                  <div class="journey-item">
+                    <span class="journey-dot" />
+                    <p class="journey-period">{item.period}</p>
+                    <p class="journey-title">{item.title}</p>
+                    <p class="journey-description">{item.description}</p>
+                  </div>
+                ))
+              }
+            </div>
+
+            <div class="journey-map">
+              <img
+                src="/images/world_map.png"
+                alt="World map highlighting regions worked across, with icons for Retail & E-commerce, Technology & SaaS, Finance & FinTech, Logistics & Operations, Education & e-Learning, and Professional Services"
+                class="journey-map-image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="values">
+        <div class="values-inner">
+          <p class="section-label">How I Work</p>
+          <h2>My values and working style.</h2>
+
+          <div class="values-grid">
+            {
+              values.map((value) => (
+                <div class="value-card">
+                  <span class="value-card-icon" set:html={value.icon} />
+                  <p class="value-card-title">{value.title}</p>
+                  <p class="value-card-description">
+                    {value.description}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="profile">
+        <div class="profile-inner">
+          <p class="section-label">My Working Profile</p>
+
+          <div class="profile-heading-row">
+            <h2>Psychometric profile.</h2>
+            <a
+              href="/documents/Mariya_Mihaylova_assessment_report_en-gb.pdf"
+              class="profile-download-badge"
+              download
+            >
+              <span class="profile-download-icon" set:html={icons.download} />
+              Download full psychometric profile
+            </a>
+          </div>
+
+          <div class="profile-grid">
+            {
+              profileCards.map((card) => (
+                <div class="profile-card">
+                  <span class="profile-card-icon" set:html={card.icon} />
+                  <p class="profile-card-title">{card.title}</p>
+                  <p class="profile-card-description">
+                    {card.description}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="approach">
+        <div class="approach-inner">
+          <p class="section-label">My Approach</p>
+          <h2>A simple, structured approach to outcomes.</h2>
+
+          <div class="approach-grid">
+            {
+              approachSteps.map((step, index) => (
+                <div class="approach-step">
+                  <div class="approach-step-head">
+                    <div class="approach-step-number">{step.number}</div>
+                    <p class="approach-step-title">{step.title}</p>
+                    {index < approachSteps.length - 1 && (
+                      <span class="approach-arrow" aria-hidden="true">
+                        →
+                      </span>
+                    )}
+                  </div>
+                  <p class="approach-step-description">
+                    {step.description}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="about-cta">
+        <div class="about-cta-inner">
+          <div>
+            <h2>Let's build what's next.</h2>
+            <p class="about-cta-description">
+              If you're looking to turn practical AI and digital
+              solutions into results, I'd love to hear from you.
+            </p>
+          </div>
+
+          <a href="/contact" class="primary-button">
+            Start a conversation
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="Mariya Mihaylova homepage">
+            MM
+          </a>
+          <p class="footer-tagline">
+            AI Transformation & Digital Delivery Consultant
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+          <p class="footer-meta">
+            <span class="footer-icon" set:html={icons.globe} />
+            Available worldwide
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Quick Links</p>
+          <a href="/">Home</a>
+          <a href="/expertise">Expertise</a>
+          <a href="/projects">Projects</a>
+          <a href="/about" class="footer-link-active">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Connect</p>
+          <a href="mailto:mariya@mariyamihaylova.com" class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.mail} />
+            mariya@mariyamihaylova.com
+          </a>
+          <p class="footer-link-icon">
+            <span class="footer-icon" set:html={icons.pin} />
+            Paris area, France
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <p class="footer-heading">Languages</p>
+          <p class="footer-note">
+            This website is available in English / Français.
+          </p>
+          <div class="footer-lang-links">
+            <a href="/" class="active-language">EN</a>
+            <span>|</span>
+            <a href="/fr">FR</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Mariya Mihaylova. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #061426;
+    color: #f5f7fa;
+    font-family:
+      Inter,
+      Arial,
+      Helvetica,
+      sans-serif;
+  }
+
+  :global(img) {
+    display: block;
+    max-width: 100%;
+  }
+
+  header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    min-height: 88px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  .logo {
+    color: #45c7ff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    text-decoration: none;
+    text-shadow: 0 0 20px rgba(69, 199, 255, 0.32);
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .navigation > a {
+    position: relative;
+    color: rgba(245, 247, 250, 0.78);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .navigation > a::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 2px;
+    background: #1d63ff;
+    content: "";
+    opacity: 0;
+    transform: scaleX(0);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .navigation > a:hover {
+    color: #ffffff;
+  }
+
+  .navigation > a:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .navigation > a.active-page {
+    color: #45c7ff;
+  }
+
+  .navigation > a.active-page::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .language-switcher a {
+    color: rgba(245, 247, 250, 0.62);
+    text-decoration: none;
+  }
+
+  .language-switcher .active-language {
+    color: #45c7ff;
+  }
+
+  .label {
+    width: fit-content;
+    margin: 0 0 22px;
+    border: 1px solid rgba(69, 199, 255, 0.58);
+    border-radius: 4px;
+    color: #45c7ff;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .section-label {
+    margin: 0 0 16px;
+    color: #1d63ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  main section h2 {
+    max-width: 640px;
+    margin: 0 0 20px;
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .primary-button,
+  .secondary-button {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 0 24px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .primary-button:hover,
+  .secondary-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .primary-button {
+    background: #1d63ff;
+    color: white;
+    box-shadow: 0 14px 32px rgba(29, 99, 255, 0.28);
+  }
+
+  .primary-button:hover {
+    background: #3476ff;
+  }
+
+  .secondary-button {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+
+  .secondary-button:hover {
+    border-color: rgba(69, 199, 255, 0.7);
+  }
+
+  /* ---------- About hero ---------- */
+
+  .about-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1.08fr 0.92fr;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+    padding: 40px 0 80px;
+  }
+
+  h1 {
+    max-width: 560px;
+    margin: 0;
+    font-size: clamp(36px, 4.4vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  h1 span {
+    color: #45c7ff;
+  }
+
+  .description {
+    max-width: 480px;
+    margin: 20px 0 0;
+    color: rgba(245, 247, 250, 0.65);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .about-hero-visual {
+    position: relative;
+    display: flex;
+    height: 460px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .network {
+    position: absolute;
+    border: 1px solid rgba(69, 199, 255, 0.16);
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+
+  .network::before,
+  .network::after {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #45c7ff;
+    box-shadow: 0 0 14px rgba(69, 199, 255, 0.85);
+    content: "";
+  }
+
+  .network-one {
+    top: 30px;
+    right: 0;
+    width: 420px;
+    height: 250px;
+    transform: rotate(-14deg);
+  }
+
+  .network-one::before {
+    top: 30px;
+    left: 70px;
+  }
+
+  .network-one::after {
+    right: 55px;
+    bottom: 40px;
+  }
+
+  .network-two {
+    top: 150px;
+    right: 60px;
+    width: 320px;
+    height: 190px;
+    transform: rotate(17deg);
+  }
+
+  .network-two::before {
+    top: 65px;
+    right: 55px;
+  }
+
+  .network-two::after {
+    bottom: 20px;
+    left: 95px;
+  }
+
+  .about-hero-image-frame {
+    position: relative;
+    z-index: 3;
+    width: 380px;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .about-hero-image-frame::before {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    z-index: -1;
+    width: 115%;
+    height: 65%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(29, 99, 255, 0.3),
+      rgba(29, 99, 255, 0.1) 55%,
+      transparent 75%
+    );
+    content: "";
+    filter: blur(50px);
+    pointer-events: none;
+  }
+
+  .about-hero-image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 85%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 85%,
+      transparent 100%
+    );
+    filter: drop-shadow(0 30px 40px rgba(2, 8, 20, 0.4));
+  }
+
+  /* ---------- My Story ---------- */
+
+  .story {
+    background: #061426;
+    padding: 90px 0;
+  }
+
+  .story-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 36px;
+  }
+
+  .story-paragraph {
+    margin: 0 0 18px;
+    color: rgba(245, 247, 250, 0.62);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .story-location {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 22px 0 0;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .story-location-icon {
+    display: flex;
+    flex: 0 0 auto;
+    color: #45c7ff;
+  }
+
+  .story-location-icon :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  .story-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .story-stat-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 22px 18px;
+  }
+
+  .story-stat-icon {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    color: #45c7ff;
+  }
+
+  .story-stat-icon :global(svg) {
+    width: 22px;
+    height: 22px;
+  }
+
+  .story-stat-value {
+    margin: 0 0 4px;
+    color: #45c7ff;
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  .story-stat-title {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .story-stat-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+
+  /* ---------- My Journey ---------- */
+
+  .journey {
+    background: #0a1830;
+    padding: 90px 0;
+    overflow: hidden;
+  }
+
+  .journey-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .journey-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 36px;
+  }
+
+  .journey-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .journey-item {
+    position: relative;
+    padding-left: 24px;
+    border-left: 2px solid rgba(69, 199, 255, 0.22);
+    padding-bottom: 4px;
+  }
+
+  .journey-dot {
+    position: absolute;
+    top: 2px;
+    left: -7px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #45c7ff;
+    border-radius: 50%;
+    background: #0a1830;
+  }
+
+  .journey-period {
+    margin: 0 0 6px;
+    color: #45c7ff;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .journey-title {
+    margin: 0 0 6px;
+    font-size: 15.5px;
+    font-weight: 700;
+  }
+
+  .journey-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .journey-map-image {
+    width: 122%;
+    max-width: 122%;
+    height: auto;
+    margin: 0 -20% 0 -2%;
+    display: block;
+    border-radius: 14px;
+    -webkit-mask-image: radial-gradient(ellipse 72% 72% at center, #000 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 72% 72% at center, #000 55%, transparent 100%);
+  }
+
+  /* ---------- How I Work / values ---------- */
+
+  .values {
+    background: #061426;
+    padding: 90px 0;
+  }
+
+  .values-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 36px;
+  }
+
+  .value-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 24px 22px;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .value-card:hover {
+    border-color: rgba(69, 199, 255, 0.35);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .value-card-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .value-card-icon :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+
+  .value-card-title {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .value-card-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.58);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* ---------- Working profile ---------- */
+
+  .profile {
+    background: #0a1830;
+    padding: 90px 0;
+  }
+
+  .profile-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .profile-heading-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .profile-heading-row h2 {
+    margin-bottom: 0;
+  }
+
+  .profile-download-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(69, 199, 255, 0.4);
+    border-radius: 999px;
+    padding: 6px 14px;
+    color: #45c7ff;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .profile-download-badge:hover {
+    background: #45c7ff;
+    color: #061426;
+  }
+
+  .profile-download-icon {
+    display: flex;
+  }
+
+  .profile-download-icon :global(svg) {
+    width: 14px;
+    height: 14px;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 36px;
+  }
+
+  .profile-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 22px 20px;
+  }
+
+  .profile-card-icon {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    background: rgba(69, 199, 255, 0.12);
+    color: #45c7ff;
+  }
+
+  .profile-card-icon :global(svg) {
+    width: 19px;
+    height: 19px;
+  }
+
+  .profile-card-title {
+    margin: 0 0 6px;
+    font-size: 14.5px;
+    font-weight: 700;
+  }
+
+  .profile-card-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.45);
+    font-size: 12.5px;
+    font-style: italic;
+  }
+
+  /* ---------- Approach ---------- */
+
+  .approach {
+    background: #061426;
+    padding: 90px 0;
+  }
+
+  .approach-inner {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    margin-top: 36px;
+  }
+
+  .approach-step-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .approach-step-number {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #1d63ff;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .approach-step-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .approach-arrow {
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    color: rgba(69, 199, 255, 0.5);
+    font-size: 16px;
+    transform: translateY(-50%);
+  }
+
+  .approach-step-description {
+    margin: 0;
+    color: rgba(245, 247, 250, 0.58);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  /* ---------- About CTA ---------- */
+
+  .about-cta {
+    position: relative;
+    background: linear-gradient(180deg, #061426, #0a1c38);
+    padding: 70px 0;
+    overflow: hidden;
+  }
+
+  .about-cta::before {
+    position: absolute;
+    bottom: -60px;
+    left: -10%;
+    width: 60%;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse,
+      rgba(29, 99, 255, 0.28),
+      transparent 70%
+    );
+    content: "";
+    filter: blur(10px);
+    pointer-events: none;
+  }
+
+  .about-cta-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 0 auto;
+  }
+
+  .about-cta-inner h2 {
+    margin: 0 0 10px;
+  }
+
+  .about-cta-description {
+    max-width: 480px;
+    margin: 0;
+    color: rgba(245, 247, 250, 0.6);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    background: #030d1b;
+    padding-top: 70px;
+  }
+
+  .footer-inner {
+    display: grid;
+    width: min(1180px, calc(100% - 48px));
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 30px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .footer-tagline {
+    max-width: 220px;
+    margin: 16px 0 18px;
+    color: rgba(245, 247, 250, 0.55);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13px;
+  }
+
+  .footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #45c7ff;
+  }
+
+  .footer-icon :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .footer-heading {
+    margin: 0 0 4px;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-column a {
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-column a:hover {
+    color: #45c7ff;
+  }
+
+  .footer-link-active {
+    color: #45c7ff !important;
+  }
+
+  .footer-link-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: rgba(245, 247, 250, 0.68);
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+
+  .footer-link-icon:hover {
+    color: #45c7ff;
+  }
+
+  .footer-note {
+    margin: 0 0 8px;
+    color: rgba(245, 247, 250, 0.5);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .footer-lang-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245, 247, 250, 0.38);
+    font-size: 13px;
+  }
+
+  .footer-lang-links a {
+    color: rgba(245, 247, 250, 0.62);
+  }
+
+  .footer-lang-links .active-language {
+    color: #45c7ff;
+  }
+
+  .footer-bottom {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 auto;
+    padding: 24px 0;
+    color: rgba(245, 247, 250, 0.4);
+    font-size: 12.5px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(245, 247, 250, 0.4);
+    text-decoration: none;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #45c7ff;
+  }
+
+  @media (max-width: 950px) {
+    .about-hero-inner {
+      grid-template-columns: 1fr;
+      padding-bottom: 50px;
+    }
+
+    .about-hero-visual {
+      height: 340px;
+    }
+
+    .story-grid,
+    .journey-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .story-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .approach-grid {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 34px;
+    }
+
+    .approach-arrow {
+      display: none;
+    }
+
+    .about-cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 40px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    nav {
+      width: min(100% - 30px, 1180px);
+    }
+
+    .navigation > a:not(.active-page) {
+      display: none;
+    }
+
+    .about-hero-inner,
+    .story-inner,
+    .journey-inner,
+    .values-inner,
+    .profile-inner,
+    .approach-inner {
+      width: min(100% - 30px, 1180px);
+    }
+
+    .buttons {
+      flex-direction: column;
+    }
+
+    .buttons a {
+      width: 100%;
+    }
+
+    .story-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .values-grid,
+    .profile-grid,
+    .approach-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+      grid-template-columns: 1fr;
+      row-gap: 34px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
